@@ -543,3 +543,84 @@ footer {
     color: #666;
     margin-bottom: 1.5rem;
 }
+
+/* ==========================================================================
+   13. REGRAS DA CASA E GUIA LOCAL
+   ========================================================================== */
+
+/* Regras da Casa */
+.grelha-regras {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.cartao-regra {
+    background-color: var(--cor-branca);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e2e0d8;
+    box-shadow: var(--sombra);
+    text-align: center;
+}
+
+.icone-regra {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.cartao-regra h3 {
+    margin-bottom: 0.5rem;
+    color: var(--cor-primaria);
+}
+
+.cartao-regra p {
+    font-size: 0.95rem;
+    margin: 0.25rem 0;
+}
+
+/* Guia Local */
+.subtitulo-guia {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    color: #555;
+}
+
+.grelha-guia {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.cartao-guia {
+    background-color: var(--cor-branca);
+    padding: 1.8rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--cor-primaria);
+    box-shadow: var(--sombra);
+    text-align: left;
+}
+
+.categoria-guia {
+    display: inline-block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--cor-primaria);
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.8rem;
+}
+
+.cartao-guia h3 {
+    margin-bottom: 0.5rem;
+}
+
+.cartao-guia p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #444;
+}
