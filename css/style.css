@@ -56,7 +56,7 @@ nav ul {
     display: flex;
     list-style: none;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 nav ul li a {
@@ -248,7 +248,7 @@ footer {
     }
     
     nav ul {
-        gap: 1.2rem;
+        gap: 1rem;
         flex-wrap: wrap;
         justify-content: center;
     }
@@ -265,6 +265,7 @@ footer {
         padding: 3rem 1.5rem;
     }
 }
+
 /* ==========================================================================
    9. ESTILIZAÇÃO DA GALERIA (CSS GRID)
    ========================================================================== */
@@ -280,14 +281,12 @@ footer {
     padding-bottom: 0.5rem;
 }
 
-/* Criação da grelha de 3 colunas por padrão */
 .grid-galeria {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
-/* Faz com que a primeira foto (Piscina) ganhe maior destaque no PC */
 @media (min-width: 992px) {
     .grid-galeria .item-galeria.grande {
         grid-column: span 2;
@@ -300,28 +299,26 @@ footer {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: var(--sombra);
-    height: 250px; /* Mantém todas as imagens alinhadas com a mesma altura */
+    height: 250px;
 }
 
 @media (min-width: 992px) {
     .grid-galeria .item-galeria.grande {
-        height: 516px; /* Ajuste proporcional para a imagem de destaque */
+        height: 516px;
     }
 }
 
 .item-galeria img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Recorta a imagem para preencher o espaço sem distorcer */
+    object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-/* Efeito de zoom suave ao passar o rato */
 .item-galeria:hover img {
     transform: scale(1.05);
 }
 
-/* Legenda escura translúcida sobreposta na foto */
 .legenda {
     position: absolute;
     bottom: 0;
@@ -332,14 +329,12 @@ footer {
     padding: 1.5rem 1rem 0.8rem 1rem;
     font-size: 0.95rem;
     font-weight: 500;
-    pointer-events: none; /* Garante que o rato foca na imagem */
+    pointer-events: none;
 }
 
 /* ==========================================================================
    10. COMODIDADES, LOCALIZAÇÃO E FORMULÁRIO
    ========================================================================== */
-
-/* Comodidades */
 .grid-comodidades {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -372,7 +367,6 @@ footer {
     margin-bottom: 0.5rem;
 }
 
-/* Localização */
 .fundo-suave {
     background-color: #f2f0eb;
     border-radius: 8px;
@@ -401,7 +395,6 @@ footer {
     background-color: var(--cor-secundaria);
 }
 
-/* Formulário de Contacto */
 .container-formulario {
     max-width: 600px;
     margin: 0 auto;
@@ -465,12 +458,10 @@ footer {
 /* ==========================================================================
    11. MAPA INTERATIVO E REDES SOCIAIS
    ========================================================================== */
-
-/* Ajuste do contentor do Mapa */
 .container-mapa {
     margin-top: 2rem;
     border-radius: 8px;
-    overflow: hidden; /* Garante que o mapa respeita os cantos arredondados */
+    overflow: hidden;
     box-shadow: var(--sombra);
     background-color: #ddd;
 }
@@ -479,7 +470,6 @@ footer {
     display: block;
 }
 
-/* Redes Sociais no Rodapé */
 .conteudo-rodape {
     display: flex;
     flex-direction: column;
@@ -508,7 +498,6 @@ footer {
     border-color: var(--cor-branca);
 }
 
-/* Tornar o rodapé responsivo em ecrãs maiores */
 @media (min-width: 768px) {
     .conteudo-rodape {
         flex-direction: row;
@@ -521,7 +510,6 @@ footer {
 /* ==========================================================================
    12. CALENDÁRIO DE DISPONIBILIDADE
    ========================================================================== */
-
 .container-calendario {
     max-width: 900px;
     margin: 2rem auto;
@@ -547,8 +535,6 @@ footer {
 /* ==========================================================================
    13. REGRAS DA CASA E GUIA LOCAL
    ========================================================================== */
-
-/* Regras da Casa */
 .grelha-regras {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -572,7 +558,7 @@ footer {
 
 .cartao-regra h3 {
     margin-bottom: 0.5rem;
-    color: var(--cor-primaria);
+    color: var(--cor-principal);
 }
 
 .cartao-regra p {
@@ -580,7 +566,6 @@ footer {
     margin: 0.25rem 0;
 }
 
-/* Guia Local */
 .subtitulo-guia {
     text-align: center;
     max-width: 700px;
@@ -598,7 +583,7 @@ footer {
     background-color: var(--cor-branca);
     padding: 1.8rem;
     border-radius: 8px;
-    border-left: 4px solid var(--cor-primaria);
+    border-left: 4px solid var(--cor-principal);
     box-shadow: var(--sombra);
     text-align: left;
 }
@@ -608,7 +593,7 @@ footer {
     font-size: 0.8rem;
     text-transform: uppercase;
     font-weight: bold;
-    color: var(--cor-primaria);
+    color: var(--cor-principal);
     background-color: rgba(0, 0, 0, 0.05);
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
@@ -626,124 +611,60 @@ footer {
 }
 
 /* ==========================================================================
-   14. SELETOR DE IDIOMA ELEGANTE
+   14. SELETOR DE IDIOMA COM GLOW AZUL (PT | EN | FR | ES)
    ========================================================================== */
-
 .item-tradutor {
     display: flex;
     align-items: center;
-    margin-left: 1rem;
-}
-
-/* Caixa principal do Google Tradutor */
-#google_translate_element .goog-te-gadget-simple {
-    background-color: rgba(255, 255, 255, 0.12) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    padding: 6px 14px !important;
-    border-radius: 20px !important;
-    font-family: inherit !important;
-    font-size: 0.85rem !important;
-    color: #ffffff !important;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-/* Efeito ao passar o rato (Hover) */
-#google_translate_element .goog-te-gadget-simple:hover {
-    background-color: rgba(255, 255, 255, 0.25) !important;
-    border-color: #ffffff !important;
-}
-
-/* Oculta o logótipo/ícone do Google e separadores */
-.goog-te-gadget-icon,
-.goog-te-gadget-simple img,
-.goog-te-menu-value span:nth-child(3),
-.goog-te-menu-value span:nth-child(5) {
-    display: none !important;
-}
-
-/* Texto do idioma em branco */
-.goog-te-menu-value span {
-    color: #ffffff !important;
-    font-weight: 500 !important;
-    text-transform: capitalize;
-}
-
-/* Seta discreta apontar para baixo */
-.goog-te-menu-value:after {
-    content: ' ▾';
-    color: #ffffff !important;
-    margin-left: 6px;
-    font-size: 0.75rem;
-}
-
-/* Remove a barra azul/cinzenta superior que o Google força no topo da página ao traduzir */
-body {
-    top: 0 !important;
-}
-.goog-te-banner-frame, 
-.skiptranslate.goog-te-gadget {
-    display: block !important;
-}
-iframe.goog-te-banner-frame {
-    display: none !important;
-}
-/* ==========================================================================
-   14. SELETOR DE IDIOMA PERSONALIZADO (PT | EN | FR | ES)
-   ========================================================================== */
-
-.item-tradutor {
-    display: flex;
-    align-items: center;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
 }
 
 .seletor-lingua {
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.4rem;
     font-size: 0.85rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.6);
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #1e293b; /* Fundo escuro elegante para contrastar */
     padding: 4px 12px;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .lang-btn {
+    color: #94a3b8;
     cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
+    transition: all 0.25 ease;
     user-select: none;
+    padding: 2px 6px;
+    border-radius: 4px;
 }
 
 .lang-btn:hover {
     color: #ffffff;
 }
 
-/* Idioma selecionado/ativo */
+/* Efeito Glow no Idioma Ativo */
 .lang-btn.active {
     color: #ffffff;
-    text-decoration: underline;
     font-weight: bold;
+    background-color: rgba(59, 130, 246, 0.25);
+    border: 1px solid rgba(59, 130, 246, 0.6);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5), inset 0 0 5px rgba(59, 130, 246, 0.3);
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
 }
 
 .separador {
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.2);
     font-size: 0.75rem;
 }
 
-/* Ocultar barra superior e avisos do Google */
+/* Ocultar barra e avisos do Google Tradutor */
 body {
     top: 0 !important;
 }
 .goog-te-banner-frame, 
-.goog-te-balloon-part {
-    display: none !important;
-}
+.goog-te-balloon-part,
 .skiptranslate {
     display: none !important;
 }
