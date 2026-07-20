@@ -293,18 +293,35 @@ function googleTranslateElementInit() {
 }
 
 function mudarIdioma(lang) {
+  // Atualiza visualmente os botões
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+
+  // Se o utilizador clicar em PT, repõe a página original
+  if (lang === 'pt') {
+    var iframe = document.querySelector('iframe.goog-te-banner-frame');
+    if (iframe) {
+      var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+      var restoreBtn = innerDoc.querySelector('button[id*="restore"]');
+      if (restoreBtn) restoreBtn.click();
+    }
+    // Caso o iframe não esteja visível, força a escolha no select do Google
+    var select = document.querySelector('.goog-te-combo');
+    if (select) {
+      select.value = 'pt';
+      select.dispatchEvent(new Event('change'));
+    }
+    return;
+  }
+
+  // Para outros idiomas (EN, FR, ES)
   var select = document.querySelector('.goog-te-combo');
   if (select) {
     select.value = lang;
     select.dispatchEvent(new Event('change'));
-    
-    // Atualiza a classe ativa visualmente
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
   }
 }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
 </body>
 </html>
