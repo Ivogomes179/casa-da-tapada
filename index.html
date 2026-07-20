@@ -89,11 +89,81 @@
     </section>
 
     <!-- 5. CONTACTOS & RESERVAS -->
+    <!-- SECÇÃO DE COMODIDADES (Iconografia e Pontos Fortes) -->
+    <section id="comodidades">
+        <h2>Comodidades Principais</h2>
+        <div class="grid-comodidades">
+            <div class="card-comodidade">
+                <span class="icone">🏊‍♂️</span>
+                <h3>Piscina Privativa</h3>
+                <p>Ampla piscina com área relvada de acesso exclusivo.</p>
+            </div>
+            <div class="card-comodidade">
+                <span class="icone">❄️</span>
+                <h3>Climatização</h3>
+                <p>Quartos acolhedores e confortáveis equipados com Ar Condicionado.</p>
+            </div>
+            <div class="card-comodidade">
+                <span class="icone">🚗</span>
+                <h3>Estacionamento</h3>
+                <p>Parque privado no interior da propriedade para até 3 carros.</p>
+            </div>
+            <div class="card-comodidade">
+                <span class="icone">🍖</span>
+                <h3>Churrasqueira</h3>
+                <p>Espaço exterior equipado para refeições ao ar livre.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECÇÃO DE LOCALIZAÇÃO -->
+    <section id="localizacao" class="fundo-suave">
+        <h2>Localização</h2>
+        <div class="conteudo-localizacao">
+            <p>A <strong>Casa da Tapada</strong> localiza-se na tranquilidade de <strong>Abragão, Penafiel</strong>. O refúgio perfeito para quem procura privacidade, ar puro e descanso, mantendo-se próximo de todos os serviços essenciais.</p>
+            
+            <div class="detalhes-mapa">
+                <a href="https://maps.google.com" target="_blank" class="btn-mapa">
+                    📍 Ver Localização no Google Maps
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECÇÃO DE RESERVAS E FORMULÁRIO -->
     <section id="reservas">
         <h2>Faça a sua Reserva</h2>
-        <p>Fale connosco diretamente para consultar datas e valores sem comissões adicionais.</p>
-        <!-- Link direto para o teu WhatsApp -->
-        <a href="https://wa.me/TEU_NUMERO_AQUI" target="_blank" class="btn-whatsapp">💬 Falar no WhatsApp</a>
+        <p>Entre em contacto connosco diretamente através do WhatsApp para uma resposta imediata ou preencha o formulário abaixo.</p>
+
+        <!-- Botão Direto do WhatsApp -->
+        <div style="margin-bottom: 2.5rem;">
+            <a href="https://wa.me/351912345678" target="_blank" class="btn-whatsapp">
+                💬 Reservar por WhatsApp
+            </a>
+        </div>
+
+        <!-- Formulário de Mensagem/Email -->
+        <div class="container-formulario">
+            <h3>Enviar Pedido de Informação</h3>
+            <form action="https://formspree.io/f/xqkvpgrw" method="POST" class="formulario-contacto">
+                <div class="grupo-form">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="O seu nome" required>
+                </div>
+
+                <div class="grupo-form">
+                    <label for="email">E-mail de Contacto</label>
+                    <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+                </div>
+
+                <div class="grupo-form">
+                    <label for="mensagem">Datas Pretendidas / Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Indique as datas pretendidas, número de hóspedes ou eventuais dúvidas..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-enviar">Enviar Mensagem por E-mail</button>
+            </form>
+        </div>
     </section>
 
     <footer>

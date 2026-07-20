@@ -334,3 +334,130 @@ footer {
     font-weight: 500;
     pointer-events: none; /* Garante que o rato foca na imagem */
 }
+
+/* ==========================================================================
+   10. COMODIDADES, LOCALIZAÇÃO E FORMULÁRIO
+   ========================================================================== */
+
+/* Comodidades */
+.grid-comodidades {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.card-comodidade {
+    background-color: var(--cor-branca);
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: var(--sombra);
+    transition: transform 0.3s ease;
+}
+
+.card-comodidade:hover {
+    transform: translateY(-5px);
+}
+
+.card-comodidade .icone {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.card-comodidade h3 {
+    font-size: 1.2rem;
+    color: var(--cor-principal);
+    margin-bottom: 0.5rem;
+}
+
+/* Localização */
+.fundo-suave {
+    background-color: #f2f0eb;
+    border-radius: 8px;
+    padding: 3rem 2rem;
+}
+
+.conteudo-localizacao {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.btn-mapa {
+    display: inline-block;
+    margin-top: 1.5rem;
+    background-color: var(--cor-principal);
+    color: var(--cor-branca);
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn-mapa:hover {
+    background-color: var(--cor-secundaria);
+}
+
+/* Formulário de Contacto */
+.container-formulario {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    background-color: var(--cor-fundo);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #e2e0d8;
+}
+
+.container-formulario h3 {
+    color: var(--cor-principal);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.grupo-form {
+    margin-bottom: 1.2rem;
+}
+
+.grupo-form label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: var(--cor-texto);
+}
+
+.grupo-form input,
+.grupo-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.grupo-form input:focus,
+.grupo-form textarea:focus {
+    outline: none;
+    border-color: var(--cor-principal);
+}
+
+.btn-enviar {
+    width: 100%;
+    background-color: var(--cor-principal);
+    color: var(--cor-branca);
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-enviar:hover {
+    background-color: var(--cor-secundaria);
+}
