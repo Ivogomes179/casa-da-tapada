@@ -461,3 +461,59 @@ footer {
 .btn-enviar:hover {
     background-color: var(--cor-secundaria);
 }
+
+/* ==========================================================================
+   11. MAPA INTERATIVO E REDES SOCIAIS
+   ========================================================================== */
+
+/* Ajuste do contentor do Mapa */
+.container-mapa {
+    margin-top: 2rem;
+    border-radius: 8px;
+    overflow: hidden; /* Garante que o mapa respeita os cantos arredondados */
+    box-shadow: var(--sombra);
+    background-color: #ddd;
+}
+
+.container-mapa iframe {
+    display: block;
+}
+
+/* Redes Sociais no Rodapé */
+.conteudo-rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 1rem;
+}
+
+.redes-sociais {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.link-rede {
+    color: var(--cor-branca);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.link-rede:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--cor-branca);
+}
+
+/* Tornar o rodapé responsivo em ecrãs maiores */
+@media (min-width: 768px) {
+    .conteudo-rodape {
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
