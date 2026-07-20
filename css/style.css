@@ -1,0 +1,336 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS (Estilo Tons Terra / Natureza)
+   ========================================================================== */
+:root {
+    --cor-principal: #2c4a3e;   /* Verde floresta elegante */
+    --cor-secundaria: #8c7863;  /* Tom terra/madeira aconchegante */
+    --cor-fundo: #faf9f6;       /* Branco off-white suave para descansar a vista */
+    --cor-texto: #333333;       /* Cinza escuro para melhor legibilidade */
+    --cor-branca: #ffffff;
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --sombra: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Efeito de deslizar suave ao clicar no menu */
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. NAVBAR / MENU
+   ========================================================================== */
+header {
+    background-color: var(--cor-branca);
+    box-shadow: var(--sombra);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--cor-principal);
+    letter-spacing: 1px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--cor-principal);
+}
+
+nav ul li a.btn-nav {
+    background-color: var(--cor-principal);
+    color: var(--cor-branca);
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a.btn-nav:hover {
+    background-color: var(--cor-secundaria);
+}
+
+/* ==========================================================================
+   3. HERO SECTION (Imagem de Destaque da Piscina)
+   ========================================================================== */
+#hero {
+    height: 80vh; /* Ocupa 80% da altura do ecrã */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+/* Película escura sobre a foto para o texto ficar perfeitamente legível */
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: var(--cor-branca);
+    padding: 0 1rem;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.btn-principal {
+    display: inline-block;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branca);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.btn-principal:hover {
+    background-color: #766350;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. SECÇÕES DE CONTEÚDO
+   ========================================================================== */
+section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--cor-principal);
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--cor-secundaria);
+    margin: 0.5rem auto 0 auto;
+}
+
+/* ==========================================================================
+   5. AVISOS E REGRAS
+   ========================================================================== */
+#regras {
+    background-color: #fff3cd; /* Fundo amarelo suave para aviso */
+    border-left: 5px solid #ffc107;
+    border-radius: 4px;
+    max-width: 800px;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.aviso-regras p {
+    color: #856404;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   6. RESERVAS E BOTÃO WHATSAPP
+   ========================================================================== */
+#reservas {
+    text-align: center;
+    background-color: var(--cor-branca);
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    padding: 4rem 2rem;
+    margin-bottom: 5rem;
+}
+
+#reservas p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.btn-whatsapp {
+    display: inline-block;
+    background-color: #25D366; /* Verde oficial do WhatsApp */
+    color: var(--cor-branca);
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px; /* Botão oval moderno */
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebd57;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   7. FOOTER
+   ========================================================================== */
+footer {
+    background-color: var(--cor-principal);
+    color: var(--cor-branca);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   8. RESPONSIVIDADE (Ajustes para ecrãs pequenos / Telemóveis)
+   ========================================================================== */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    nav ul {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    section {
+        padding: 3rem 1.5rem;
+    }
+}
+/* ==========================================================================
+   9. ESTILIZAÇÃO DA GALERIA (CSS GRID)
+   ========================================================================== */
+.galeria-container {
+    margin-bottom: 2rem;
+}
+
+.galeria-container h3 {
+    font-size: 1.5rem;
+    color: var(--cor-principal);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #eef0ed;
+    padding-bottom: 0.5rem;
+}
+
+/* Criação da grelha de 3 colunas por padrão */
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Faz com que a primeira foto (Piscina) ganhe maior destaque no PC */
+@media (min-width: 992px) {
+    .grid-galeria .item-galeria.grande {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+}
+
+.item-galeria {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    height: 250px; /* Mantém todas as imagens alinhadas com a mesma altura */
+}
+
+@media (min-width: 992px) {
+    .grid-galeria .item-galeria.grande {
+        height: 516px; /* Ajuste proporcional para a imagem de destaque */
+    }
+}
+
+.item-galeria img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta a imagem para preencher o espaço sem distorcer */
+    transition: transform 0.5s ease;
+}
+
+/* Efeito de zoom suave ao passar o rato */
+.item-galeria:hover img {
+    transform: scale(1.05);
+}
+
+/* Legenda escura translúcida sobreposta na foto */
+.legenda {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    color: var(--cor-branca);
+    padding: 1.5rem 1rem 0.8rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    pointer-events: none; /* Garante que o rato foca na imagem */
+}
