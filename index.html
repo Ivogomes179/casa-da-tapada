@@ -20,8 +20,19 @@
                 <li><a href="#guia-local">Região</a></li>
                 <li><a href="#reservas" class="btn-nav">Reservar</a></li>
                 <!-- Seletor de Idioma Tradutor -->
+                <!-- Seletor de Idioma Personalizado -->
                 <li class="item-tradutor">
-                    <div id="google_translate_element"></div>
+                    <div class="seletor-lingua">
+                        <span onclick="mudarIdioma('pt')" class="lang-btn active">PT</span>
+                        <span class="separador">|</span>
+                        <span onclick="mudarIdioma('en')" class="lang-btn">EN</span>
+                        <span class="separador">|</span>
+                        <span onclick="mudarIdioma('fr')" class="lang-btn">FR</span>
+                        <span class="separador">|</span>
+                        <span onclick="mudarIdioma('es')" class="lang-btn">ES</span>
+                    </div>
+                    <!-- Elemento escondido do Google Tradutor -->
+                    <div id="google_translate_element" style="display:none;"></div>
                 </li>
             </ul>
         </nav>
@@ -271,13 +282,26 @@
         </div>
     </footer>
 
+<!-- Script do Google Tradutor + Função de Troca por Clique -->
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'pt',
-    includedLanguages: 'en,es,fr,de', // Inglês, Espanhol, Francês e Alemão
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    includedLanguages: 'en,es,fr,de',
+    autoDisplay: false
   }, 'google_translate_element');
+}
+
+function mudarIdioma(lang) {
+  var select = document.querySelector('.goog-te-combo');
+  if (select) {
+    select.value = lang;
+    select.dispatchEvent(new Event('change'));
+    
+    // Atualiza a classe ativa visualmente
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+  }
 }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

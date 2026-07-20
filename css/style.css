@@ -691,3 +691,59 @@ body {
 iframe.goog-te-banner-frame {
     display: none !important;
 }
+/* ==========================================================================
+   14. SELETOR DE IDIOMA PERSONALIZADO (PT | EN | FR | ES)
+   ========================================================================== */
+
+.item-tradutor {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.seletor-lingua {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lang-btn {
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+    user-select: none;
+}
+
+.lang-btn:hover {
+    color: #ffffff;
+}
+
+/* Idioma selecionado/ativo */
+.lang-btn.active {
+    color: #ffffff;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.separador {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.75rem;
+}
+
+/* Ocultar barra superior e avisos do Google */
+body {
+    top: 0 !important;
+}
+.goog-te-banner-frame, 
+.goog-te-balloon-part {
+    display: none !important;
+}
+.skiptranslate {
+    display: none !important;
+}
