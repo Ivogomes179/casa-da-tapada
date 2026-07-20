@@ -624,3 +624,70 @@ footer {
     line-height: 1.5;
     color: #444;
 }
+
+/* ==========================================================================
+   14. ESTILIZAÇÃO MODERNA DO SELETOR DE IDIOMA (GOOGLE TRANSLATE)
+   ========================================================================== */
+
+/* Alinhamento do item no menu */
+.item-tradutor {
+    display: flex;
+    align-items: center;
+    margin-left: 0.5rem;
+}
+
+/* Estilização da caixa de seleção */
+.goog-te-gadget-simple {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    padding: 6px 10px !important;
+    border-radius: 20px !important;
+    font-family: inherit !important;
+    font-size: 0.85rem !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+/* Efeito ao passar o rato (Hover) */
+.goog-te-gadget-simple:hover {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    border-color: #fff !important;
+}
+
+/* Texto dentro do botão */
+.goog-te-menu-value span {
+    color: #fff !important;
+    font-weight: 500;
+}
+
+/* Ocultar elementos desnecessários e logos do Google */
+.goog-te-gadget-icon,
+.goog-te-gadget-simple img,
+.goog-te-menu-value span:nth-child(3),
+.goog-te-menu-value span:nth-child(5) {
+    display: none !important;
+}
+
+/* Seta discreta ao lado do texto */
+.goog-te-menu-value:after {
+    content: ' ▾';
+    color: #fff;
+    font-size: 0.8rem;
+    margin-left: 4px;
+}
+
+/* Ocultar a barra superior chata que o Google insere ao traduzir */
+body {
+    top: 0 !important;
+}
+.goog-te-banner-frame {
+    display: none !important;
+}
+.skiptranslate {
+    font-size: 0 !important;
+}
+.skiptranslate > * {
+    font-size: initial !important;
+}
