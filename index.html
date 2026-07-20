@@ -17,6 +17,8 @@
                 <li><a href="#comodidades">Comodidades</a></li>
                 <li><a href="#localizacao">Localização</a></li>
                 <li><a href="#reservas" class="btn-nav">Reservar</a></li>
+                <!-- Widget do Google Tradutor -->
+                <div id="google_translate_element"></div>
             </ul>
         </nav>
     </header>
@@ -264,6 +266,17 @@
             </div>
         </div>
     </footer>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'pt',
+    includedLanguages: 'en,es,fr,de', // Inglês, Espanhol, Francês e Alemão
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
