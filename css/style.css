@@ -517,3 +517,29 @@ footer {
         margin: 0 auto;
     }
 }
+
+/* ==========================================================================
+   12. CALENDÁRIO DE DISPONIBILIDADE
+   ========================================================================== */
+
+.container-calendario {
+    max-width: 900px;
+    margin: 2rem auto;
+    background-color: var(--cor-branca);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: var(--sombra);
+    border: 1px solid #e2e0d8;
+    overflow: hidden;
+}
+
+.container-calendario iframe {
+    border-radius: 4px;
+    display: block;
+}
+
+.nota-calendario {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
