@@ -626,43 +626,38 @@ footer {
 }
 
 /* ==========================================================================
-   14. ESTILIZAÇÃO MODERNA DO SELETOR DE IDIOMA (GOOGLE TRANSLATE)
+   14. SELETOR DE IDIOMA ELEGANTE
    ========================================================================== */
 
-/* Alinhamento do item no menu */
 .item-tradutor {
     display: flex;
     align-items: center;
-    margin-left: 0.5rem;
+    margin-left: 1rem;
 }
 
-/* Estilização da caixa de seleção */
-.goog-te-gadget-simple {
-    background-color: rgba(255, 255, 255, 0.15) !important;
+/* Caixa principal do Google Tradutor */
+#google_translate_element .goog-te-gadget-simple {
+    background-color: rgba(255, 255, 255, 0.12) !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    padding: 6px 10px !important;
+    padding: 6px 14px !important;
     border-radius: 20px !important;
     font-family: inherit !important;
     font-size: 0.85rem !important;
+    color: #ffffff !important;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
     display: inline-flex !important;
     align-items: center !important;
+    justify-content: center !important;
 }
 
 /* Efeito ao passar o rato (Hover) */
-.goog-te-gadget-simple:hover {
-    background-color: rgba(255, 255, 255, 0.3) !important;
-    border-color: #fff !important;
+#google_translate_element .goog-te-gadget-simple:hover {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+    border-color: #ffffff !important;
 }
 
-/* Texto dentro do botão */
-.goog-te-menu-value span {
-    color: #fff !important;
-    font-weight: 500;
-}
-
-/* Ocultar elementos desnecessários e logos do Google */
+/* Oculta o logótipo/ícone do Google e separadores */
 .goog-te-gadget-icon,
 .goog-te-gadget-simple img,
 .goog-te-menu-value span:nth-child(3),
@@ -670,24 +665,29 @@ footer {
     display: none !important;
 }
 
-/* Seta discreta ao lado do texto */
-.goog-te-menu-value:after {
-    content: ' ▾';
-    color: #fff;
-    font-size: 0.8rem;
-    margin-left: 4px;
+/* Texto do idioma em branco */
+.goog-te-menu-value span {
+    color: #ffffff !important;
+    font-weight: 500 !important;
+    text-transform: capitalize;
 }
 
-/* Ocultar a barra superior chata que o Google insere ao traduzir */
+/* Seta discreta apontar para baixo */
+.goog-te-menu-value:after {
+    content: ' ▾';
+    color: #ffffff !important;
+    margin-left: 6px;
+    font-size: 0.75rem;
+}
+
+/* Remove a barra azul/cinzenta superior que o Google força no topo da página ao traduzir */
 body {
     top: 0 !important;
 }
-.goog-te-banner-frame {
+.goog-te-banner-frame, 
+.skiptranslate.goog-te-gadget {
+    display: block !important;
+}
+iframe.goog-te-banner-frame {
     display: none !important;
-}
-.skiptranslate {
-    font-size: 0 !important;
-}
-.skiptranslate > * {
-    font-size: initial !important;
 }
