@@ -70,7 +70,7 @@ textarea:focus-visible {
    ========================================================================== */
 
 section {
-    padding: 5rem 2rem;
+    padding: 3.5rem 2rem; /* Espaçamento ajustado para otimizar altura na página */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -85,7 +85,7 @@ section {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    padding: 5rem 2rem;
+    padding: 3.5rem 2rem;
 }
 
 h1, h2, h3, h4 {
@@ -97,7 +97,7 @@ h1, h2, h3, h4 {
 h2 {
     font-size: 2.2rem;
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     position: relative;
 }
 
@@ -115,7 +115,7 @@ h2::after {
     text-align: center;
     color: var(--cor-texto-suave);
     font-size: 1.05rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 /* ==========================================================================
@@ -138,7 +138,7 @@ nav {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1.2rem 2rem;
+    padding: 1rem 2rem;
 }
 
 .logo {
@@ -242,13 +242,14 @@ nav ul li a:hover::after {
 }
 
 /* ==========================================================================
-   4. HERO SECTION
+   4. HERO SECTION (FOTO PRINCIPAL MAIS ESTREITA)
    ========================================================================== */
 
 #hero {
-    height: 85vh;
-    height: 85dvh;
-    min-height: 550px;
+    height: 50vh;             /* Reduzido de 85vh para ficar mais estreito */
+    height: 50dvh;
+    min-height: 380px;
+    max-height: 480px;         /* Limite de altura máxima para ecrãs grandes */
     background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
                 url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
     position: relative;
@@ -267,16 +268,16 @@ nav ul li a:hover::after {
 }
 
 .hero-content h1 {
-    font-size: 3.2rem;
+    font-size: 2.8rem;
     color: var(--cor-branca);
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.8rem;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     letter-spacing: -0.5px;
 }
 
 .hero-content p {
-    font-size: 1.25rem;
-    margin-bottom: 2.2rem;
+    font-size: 1.15rem;
+    margin-bottom: 1.8rem;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     font-weight: 300;
 }
@@ -285,8 +286,8 @@ nav ul li a:hover::after {
     display: inline-block;
     background-color: var(--cor-secundaria);
     color: var(--cor-branca);
-    padding: 0.9rem 2.2rem;
-    font-size: 1rem;
+    padding: 0.8rem 2rem;
+    font-size: 0.95rem;
     font-weight: 700;
     border-radius: 30px;
     transition: var(--transicao);
@@ -306,28 +307,28 @@ nav ul li a:hover::after {
 
 .card-biografia {
     background: var(--cor-branca);
-    padding: 3rem;
+    padding: 2.5rem 2rem;
     border-radius: var(--raio-borda);
     box-shadow: var(--sombra-suave);
     text-align: center;
-    margin-bottom: 3.5rem;
+    margin-bottom: 3rem;
     border: 1px solid #eee;
 }
 
 .card-biografia p {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--cor-texto-suave);
     max-width: 900px;
     margin: 0 auto;
 }
 
 .selo-al {
-    margin-top: 1.8rem;
+    margin-top: 1.5rem;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     background: var(--cor-fundo);
-    padding: 0.6rem 1.4rem;
+    padding: 0.5rem 1.2rem;
     border-radius: 20px;
     border: 1px solid #e2e8f0;
     font-size: 0.85rem;
@@ -340,13 +341,13 @@ nav ul li a:hover::after {
    ========================================================================== */
 
 .galeria-container {
-    margin-top: 3rem;
+    margin-top: 2.5rem;
 }
 
 .galeria-container h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--cor-principal);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     border-left: 4px solid var(--cor-secundaria);
     padding-left: 0.8rem;
 }
@@ -407,13 +408,13 @@ nav ul li a:hover::after {
 .grid-comodidades {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.8rem;
-    margin-top: 2.5rem;
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .card-comodidade {
     background: var(--cor-branca);
-    padding: 2rem 1.5rem;
+    padding: 1.8rem 1.2rem;
     border-radius: var(--raio-borda);
     box-shadow: var(--sombra-suave);
     text-align: center;
@@ -428,18 +429,18 @@ nav ul li a:hover::after {
 }
 
 .card-comodidade .icone {
-    font-size: 2.8rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
     display: block;
 }
 
 .card-comodidade h3 {
-    font-size: 1.15rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
 }
 
 .card-comodidade p {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--cor-texto-suave);
 }
 
@@ -451,12 +452,12 @@ nav ul li a:hover::after {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 1.5rem;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
 }
 
 .cartao-regra {
     background: var(--cor-branca);
-    padding: 1.8rem;
+    padding: 1.5rem;
     border-radius: var(--raio-borda);
     box-shadow: var(--sombra-suave);
     text-align: center;
@@ -470,13 +471,13 @@ nav ul li a:hover::after {
 }
 
 .icone-regra {
-    font-size: 2.2rem;
-    margin-bottom: 0.8rem;
+    font-size: 2rem;
+    margin-bottom: 0.6rem;
     display: block;
 }
 
 .cartao-regra h3 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     margin-bottom: 0.4rem;
 }
 
@@ -486,14 +487,14 @@ nav ul li a:hover::after {
 }
 
 /* ==========================================================================
-   9. GUIA LOCAL E ATRAÇÕES
+   9. GUIA LOCAL E ATRAÇÕES (CAIXAS MAIS ESTREITAS)
    ========================================================================== */
 
 .grelha-guia {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.8rem;
-    margin-top: 2.5rem;
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .cartao-guia {
@@ -502,7 +503,7 @@ nav ul li a:hover::after {
     overflow: hidden;
     box-shadow: var(--sombra-suave);
     transition: var(--transicao);
-    padding: 1.8rem;
+    padding: 1.4rem 1.5rem; /* Padding reduzido para caixas mais baixas */
     border: 1px solid #eee;
 }
 
@@ -517,22 +518,23 @@ nav ul li a:hover::after {
     letter-spacing: 1.2px;
     color: var(--cor-secundaria);
     font-weight: 800;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     display: block;
 }
 
 .cartao-guia h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.6rem;
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
 }
 
 .cartao-guia p {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     color: var(--cor-texto-suave);
+    line-height: 1.5;
 }
 
 /* ==========================================================================
-   10. LOCALIZAÇÃO E MAPA
+   10. LOCALIZAÇÃO E MAPA (MAPA MAIS ESTREITO)
    ========================================================================== */
 
 .conteudo-localizacao {
@@ -541,13 +543,13 @@ nav ul li a:hover::after {
 
 .texto-localizacao {
     max-width: 700px;
-    margin: 0 auto 2rem auto;
-    font-size: 1.05rem;
+    margin: 0 auto 1.5rem auto;
+    font-size: 1rem;
     color: var(--cor-texto-suave);
 }
 
 .container-mapa {
-    margin-top: 1.8rem;
+    margin-top: 1.2rem;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--sombra-suave);
@@ -556,7 +558,7 @@ nav ul li a:hover::after {
 
 .container-mapa iframe {
     width: 100%;
-    height: 420px;
+    height: 320px;          /* Reduzido de 420px para 320px */
     border: 0;
 }
 
@@ -564,8 +566,8 @@ nav ul li a:hover::after {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 1.8rem;
-    padding: 0.7rem 1.8rem;
+    margin-top: 1.5rem;
+    padding: 0.65rem 1.6rem;
     background: var(--cor-principal);
     color: var(--cor-branca);
     border-radius: 25px;
@@ -579,31 +581,51 @@ nav ul li a:hover::after {
 }
 
 /* ==========================================================================
-   11. CALENDÁRIO DE DISPONIBILIDADE (FULLCALENDAR)
+   11. CALENDÁRIO DE DISPONIBILIDADE (COMPACTO SEM NEED DE SCROLL)
    ========================================================================== */
 
 .container-calendario {
     background: var(--cor-branca);
-    padding: 2rem;
+    padding: 1.5rem;        /* Reduzido padding */
     border-radius: 12px;
     box-shadow: var(--sombra-suave);
-    margin: 2.5rem 0 1.5rem 0;
+    margin: 1.5rem auto;
+    max-width: 950px;       /* Largura otimizada para enquadramento */
     border: 1px solid #eee;
 }
 
-/* Estilização das datas ocupadas */
+/* Redução da altura das semanas/dias */
+.fc .fc-daygrid-day-frame {
+    min-height: 52px !important; /* Células mais estreitas na vertical */
+}
+
+.fc .fc-scroller {
+    overflow: hidden !important; /* Impede criação de scroll interno */
+}
+
+.fc-daygrid-body {
+    width: 100% !important;
+}
+
+/* Estilização e compactação das barras de "Ocupado" */
 .fc-event-busy, .fc-event {
     background-color: var(--cor-erro) !important;
     border-color: var(--cor-erro) !important;
     color: white !important;
     text-align: center;
     font-weight: bold;
-    border-radius: 4px;
-    font-size: 0.8rem;
+    border-radius: 3px;
+    font-size: 0.72rem !important;
+    padding: 2px 4px !important;
+    margin-top: 2px !important;
+}
+
+.fc-toolbar {
+    margin-bottom: 1rem !important;
 }
 
 .fc-toolbar-title {
-    font-size: 1.3rem !important;
+    font-size: 1.2rem !important;
     color: var(--cor-principal);
     font-weight: 700;
 }
@@ -612,6 +634,8 @@ nav ul li a:hover::after {
     background-color: var(--cor-principal) !important;
     border-color: var(--cor-principal) !important;
     transition: var(--transicao);
+    padding: 0.3rem 0.7rem !important;
+    font-size: 0.85rem !important;
 }
 
 .fc-button-primary:hover {
@@ -619,11 +643,16 @@ nav ul li a:hover::after {
     border-color: var(--cor-secundaria) !important;
 }
 
+.fc-col-header-cell {
+    padding: 4px 0 !important;
+    font-size: 0.85rem;
+}
+
 .nota-calendario {
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--cor-texto-suave);
-    margin-top: 1rem;
+    margin-top: 0.8rem;
 }
 
 /* ==========================================================================
@@ -636,9 +665,9 @@ nav ul li a:hover::after {
 
 .container-formulario {
     max-width: 650px;
-    margin: 3rem auto 0;
+    margin: 2rem auto 0;
     background: var(--cor-fundo);
-    padding: 2.5rem;
+    padding: 2rem;
     border-radius: 12px;
     box-shadow: var(--sombra-suave);
     text-align: left;
@@ -646,14 +675,14 @@ nav ul li a:hover::after {
 }
 
 .grupo-form {
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.2rem;
 }
 
 .grupo-form label {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--cor-principal);
 }
 
@@ -661,11 +690,11 @@ nav ul li a:hover::after {
 .grupo-form textarea,
 .grupo-form select {
     width: 100%;
-    padding: 0.85rem;
+    padding: 0.75rem;
     border: 1px solid #cccccc;
     border-radius: 6px;
     font-family: inherit;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     background-color: var(--cor-branca);
     transition: var(--transicao);
 }
@@ -688,10 +717,10 @@ nav ul li a:hover::after {
     width: 100%;
     background: var(--cor-principal);
     color: var(--cor-branca);
-    padding: 1rem;
+    padding: 0.9rem;
     border: none;
     border-radius: 6px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
     transition: var(--transicao);
@@ -704,7 +733,7 @@ nav ul li a:hover::after {
 }
 
 .divisor-reserva {
-    margin: 2.5rem 0;
+    margin: 2rem 0;
     position: relative;
     text-align: center;
 }
@@ -727,7 +756,7 @@ nav ul li a:hover::after {
     padding: 0 1rem;
     color: var(--cor-texto-suave);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
 }
 
 .btn-whatsapp {
@@ -737,12 +766,12 @@ nav ul li a:hover::after {
     gap: 0.6rem;
     background-color: var(--cor-sucesso);
     color: white;
-    padding: 0.9rem 2.2rem;
+    padding: 0.85rem 2rem;
     border-radius: 30px;
     font-weight: 700;
     box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
     transition: var(--transicao);
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 .btn-whatsapp:hover {
@@ -844,7 +873,7 @@ nav ul li a:hover::after {
 footer {
     background-color: var(--cor-principal);
     color: var(--cor-branca);
-    padding: 3rem 1rem 2rem 1rem;
+    padding: 2.5rem 1rem 2rem 1rem;
     border-top: 3px solid var(--cor-secundaria);
 }
 
@@ -859,7 +888,7 @@ footer {
 }
 
 .copyright {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: #a0aec0;
 }
 
@@ -873,7 +902,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     transition: var(--transicao);
     font-weight: 500;
 }
@@ -888,11 +917,11 @@ footer {
 
 @media (max-width: 992px) {
     section {
-        padding: 4rem 1.5rem;
+        padding: 3rem 1.5rem;
     }
 
     .hero-content h1 {
-        font-size: 2.6rem;
+        font-size: 2.3rem;
     }
 }
 
@@ -909,12 +938,17 @@ footer {
         gap: 1rem;
     }
 
+    #hero {
+        height: 45vh;
+        min-height: 320px;
+    }
+
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .hero-content p {
-        font-size: 1.05rem;
+        font-size: 1rem;
     }
 
     .item-galeria.grande {
@@ -942,7 +976,7 @@ footer {
 
 @media (max-width: 480px) {
     h2 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
 
     .card-biografia {
