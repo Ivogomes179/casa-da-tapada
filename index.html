@@ -360,17 +360,23 @@
     </section>
 
     <!-- SECÇÃO DE RESERVAS E CALENDÁRIO -->
-    <!-- Scripts do FullCalendar para Sincronização Automática com o Google -->
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/icalendar@6.1.10/index.global.min.js"></script>
-
     <section id="reservas">
         <h2>Disponibilidade e Reservas</h2>
         <p>Consulte o calendário abaixo para verificar a disponibilidade da <strong>Casa da Tapada</strong>. Os dias assinalados correspondem a períodos já reservados.</p>
 
-        <!-- CONTAINER DO CALENDÁRIO AUTOMÁTICO -->
-        <div class="container-calendario" style="max-width: 800px; margin: 2rem auto; padding: 15px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-            <div id="calendario-google"></div>
+        <!-- CONTAINER COM MÁSCARA PARA OCULTAR O BOTÃO DE RECUAR -->
+        <div style="position: relative; max-width: 800px; margin: 2rem auto; overflow: hidden; border-radius: 8px;">
+            <!-- Mascarilha para tapar a seta de recuar (Anterior) -->
+            <div style="position: absolute; top: 12px; left: 12px; width: 38px; height: 38px; background: #ffffff; z-index: 10; pointer-events: auto;"></div>
+
+            <iframe 
+                src="https://calendar.google.com/calendar/embed?src=6e991fccb7a1c60f33087f0977b5d2e7b766f5b11c37dde6a4f92d86c13d8e86%40group.calendar.google.com&ctz=Europe%2FLisbon&showTitle=0&showNav=1&showPrint=0&showCalendars=0&showTz=0" 
+                style="border:0;" 
+                width="100%" 
+                height="500" 
+                frameborder="0" 
+                scrolling="no">
+            </iframe>
         </div>
 
         <p class="nota-calendario">Para reservar as suas datas ou esclarecer dúvidas, contacte-nos diretamente por WhatsApp ou preencha o formulário.</p>
