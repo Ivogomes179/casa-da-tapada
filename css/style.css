@@ -175,7 +175,7 @@ section h2::after {
 }
 
 /* ==========================================================================
-   5. AVISOS E REGRAS
+   5. AVISOS E REGRAS DE AVISO CAIXA
    ========================================================================== */
 #regras {
     background-color: #fff3cd; /* Fundo amarelo suave para aviso */
@@ -193,7 +193,7 @@ section h2::after {
 }
 
 /* ==========================================================================
-   6. RESERVAS E BOTÃO WHATSAPP
+   6. RESERVAS E BOTÃO WHATSAPP INTERNO
    ========================================================================== */
 #reservas {
     text-align: center;
@@ -239,7 +239,7 @@ footer {
 }
 
 /* ==========================================================================
-   8. RESPONSIVIDADE (Ajustes para ecrãs pequenos / Telemóveis)
+   8. RESPONSIVIDADE GERAL
    ========================================================================== */
 @media (max-width: 768px) {
     nav {
@@ -524,6 +524,7 @@ footer {
 .container-calendario iframe {
     border-radius: 4px;
     display: block;
+    width: 100%;
 }
 
 .nota-calendario {
@@ -532,14 +533,47 @@ footer {
     margin-bottom: 1.5rem;
 }
 
+/* Ajuste Responsivo do Calendário no Telemóvel */
+@media (max-width: 768px) {
+    .container-calendario,
+    .calendario-container, 
+    .booking-calendar,
+    #calendar {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important; /* Elimina o arrasto para os lados */
+    }
+}
+
 /* ==========================================================================
    13. REGRAS DA CASA E GUIA LOCAL
    ========================================================================== */
-.grelha-regras {
+.grelha-regras,
+.regras-container, 
+.regras-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas em linha única no PC */
     gap: 1.5rem;
     margin-top: 2rem;
+}
+
+@media (max-width: 992px) {
+    .grelha-regras,
+    .regras-container, 
+    .regras-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 por linha em tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .grelha-regras,
+    .regras-container, 
+    .regras-grid {
+        grid-template-columns: 1fr; /* 1 por linha no telemóvel */
+    }
 }
 
 .cartao-regra {
@@ -644,12 +678,12 @@ footer {
     color: var(--cor-principal);
 }
 
-/* Efeito no Idioma Ativo (Brilho na cor Verde Floresta) */
+/* Efeito no Idioma Ativo */
 .lang-btn.active {
     color: var(--cor-branca);
     font-weight: bold;
     background-color: var(--cor-principal);
-    box-shadow: 0 0 8px rgba(44, 74, 62, 0.4); /* Glow no tom do site */
+    box-shadow: 0 0 8px rgba(44, 74, 62, 0.4);
 }
 
 .separador {
@@ -666,6 +700,7 @@ body {
 .skiptranslate {
     display: none !important;
 }
+
 /* ==========================================================================
    15. POPUP / LIGHTBOX DE IMAGENS
    ========================================================================== */
@@ -724,26 +759,28 @@ body {
     to { opacity: 1; }
 }
 
-/* Botão Flutuante do WhatsApp */
+/* ==========================================================================
+   16. BOTÃO FLUTUANTE DE CONTACTO (Fixo ao longo do Scroll)
+   ========================================================================== */
 .whatsapp-float {
-    position: fixed;
+    position: fixed !important; /* Preso ao ecrã durante o scroll */
     bottom: 25px;
-    right: 25px;
-    background-color: #25d366;
-    color: #fff;
-    width: 60px;
-    height: 60px;
-    border-radius: 50px;
+    left: 25px;
+    background-color: #007bff; /* Azul */
+    color: #ffffff;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 999999; /* Sobrepõe todo o conteúdo */
+    text-decoration: none;
 }
 
+/* Estático (sem animação no hover) */
 .whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.4);
-    color: #fff;
+    color: #ffffff;
+    background-color: #007bff;
 }
