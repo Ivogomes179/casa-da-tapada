@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casa da Tapada | Alojamento Local em Penafiel</title>
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- FullCalendar CSS & JS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/pt.js"></script>
+    <!-- Plugin Oficial do Google Calendar -->
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@5.11.3/main.global.min.js"></script>
 </head>
 <body>
 
@@ -22,13 +29,13 @@
                 <!-- Seletor de Idioma Personalizado -->
                 <li class="item-tradutor">
                     <div class="seletor-lingua">
-                        <span onclick="mudarIdioma('pt')" class="lang-btn active">PT</span>
+                        <span onclick="mudarIdioma('pt', event)" class="lang-btn active">PT</span>
                         <span class="separador">|</span>
-                        <span onclick="mudarIdioma('en')" class="lang-btn">EN</span>
+                        <span onclick="mudarIdioma('en', event)" class="lang-btn">EN</span>
                         <span class="separador">|</span>
-                        <span onclick="mudarIdioma('fr')" class="lang-btn">FR</span>
+                        <span onclick="mudarIdioma('fr', event)" class="lang-btn">FR</span>
                         <span class="separador">|</span>
-                        <span onclick="mudarIdioma('es')" class="lang-btn">ES</span>
+                        <span onclick="mudarIdioma('es', event)" class="lang-btn">ES</span>
                     </div>
                     <!-- Elemento escondido do Google Tradutor -->
                     <div id="google_translate_element" style="display:none;"></div>
@@ -37,7 +44,7 @@
         </nav>
     </header>
 
-    <!-- 2. HERO SECTION (Abertura com foto da piscina) -->
+    <!-- 2. HERO SECTION -->
     <section id="hero" style="background-image: url('imagens/exterior/piscina/piscina1.jpg');">
         <div class="hero-content">
             <h1>O seu refúgio de sonho em Abragão, Penafiel</h1>
@@ -48,7 +55,6 @@
 
     <!-- 3. A CASA, BIOGRAFIA & GALERIA -->
     <section id="sobre">
-        <!-- Biografia e Número de Alojamento Local -->
         <div class="card-biografia">
             <h2>Sobre a Casa da Tapada</h2>
             <p>
@@ -61,195 +67,146 @@
 
         <h2 style="margin-top: 3rem;">Conheça o Espaço</h2>
         
-        <!-- Bloco Exterior Completo -->
+        <!-- Galeria Exterior -->
         <div class="galeria-container">
             <h3>Espaço Exterior</h3>
             <div class="grid-galeria">
-                
-                <!-- Foto Principal de Destaque (Drone/Vista Geral) -->
                 <div class="item-galeria grande">
                     <img src="imagens/exterior/drone/drone1.jpg" alt="Vista aérea da Casa da Tapada" loading="lazy">
                     <div class="legenda">Vista Aérea da Propriedade</div>
                 </div>
-
-                <!-- Piscina -->
                 <div class="item-galeria">
                     <img src="imagens/exterior/piscina/piscina1.jpg" alt="Piscina privativa com área relvada" loading="lazy">
                     <div class="legenda">Espreguiçadeiras</div>
                 </div>
-
                 <div class="item-galeria">
                     <img src="imagens/exterior/piscina/piscina2.jpg" alt="Zona de espreguiçadeiras na piscina" loading="lazy">
                     <div class="legenda">Piscina Privativa</div>
                 </div>
-
                 <div class="item-galeria">
                     <img src="imagens/exterior/piscina/piscina3.jpg" alt="Vista da piscina" loading="lazy">
                     <div class="legenda">Pronto para o Receber</div>
                 </div>
-
                 <div class="item-galeria">
                     <img src="imagens/exterior/piscina/piscina4.jpg" alt="Ângulo da piscina e jardim" loading="lazy">
                     <div class="legenda">Zona de Lazer</div>
                 </div>
-
                 <div class="item-galeria">
                     <img src="imagens/exterior/piscina/piscina5.jpg" alt="Perspetiva da piscina" loading="lazy">
                     <div class="legenda">Espaço Envolvente</div>
                 </div>
-
-                <!-- Alpendre -->
                 <div class="item-galeria">
                     <img src="imagens/exterior/alpendre/alpendre1.jpg" alt="Zona de alpendre" loading="lazy">
                     <div class="legenda">Alpendre Acolhedor</div>
                 </div>
-
                 <div class="item-galeria">
                     <img src="imagens/exterior/alpendre/alpendre2.jpg" alt="Sombra no alpendre" loading="lazy">
                     <div class="legenda">Sombra e Tranquilidade</div>
                 </div>
-
-                <!-- Varanda 1 -->
                 <div class="item-galeria">
                     <img src="imagens/exterior/varanda1/varanda11.jpg" alt="Vista da varanda principal" loading="lazy">
                     <div class="legenda">Varanda Traseira</div>
                 </div>
-
                 <div class="item-galeria">
                     <img src="imagens/exterior/varanda1/varanda12.jpg" alt="Zona de estar na varanda" loading="lazy">
                     <div class="legenda">Maneira Perfeita de Começar o Dia</div>
                 </div>
-
                 <div class="item-galeria">
                     <img src="imagens/exterior/varanda1/varanda14.jpg" alt="Recanto na varanda" loading="lazy">
                     <div class="legenda">Recanto de Descanso</div>
                 </div>
-
-                <!-- Varanda 2 -->
                 <div class="item-galeria">
                     <img src="imagens/exterior/varanda2/varanda2.jpg" alt="Varanda privada" loading="lazy">
                     <div class="legenda">Varanda Principal</div>
                 </div>
-
-                <!-- Pérgola / Alpendre -->
                 <div class="item-galeria">
                     <img src="imagens/exterior/pergola/pergola1.jpg" alt="Pérgola exterior com sofás" loading="lazy">
                     <div class="legenda">Pérgola Exterior</div>
                 </div>
-
                 <div class="item-galeria">
                     <img src="imagens/exterior/pergola/pergola2.jpg" alt="Zona de descanso sob a pérgola" loading="lazy">
                     <div class="legenda">Área de Descanso</div>
                 </div>
-
-                <!-- Churrasqueira -->
                 <div class="item-galeria">
                     <img src="imagens/exterior/churrasqueira/churrasqueira1.jpg" alt="Zona de churrasqueira" loading="lazy">
                     <div class="legenda">Churrasqueira</div>
                 </div>
-
                 <div class="item-galeria">
                     <img src="imagens/exterior/churrasqueira/churrasqueira2.jpg" alt="Espaço de refeições exterior" loading="lazy">
                     <div class="legenda">Espaço de Convívio</div>
                 </div>
-
-                <!-- Pormenores do Exterior -->
                 <div class="item-galeria">
                     <img src="imagens/exterior/pormenor1.jpg" alt="Detalhes de arquitetura exterior" loading="lazy">
                     <div class="legenda">Detalhes Acolhedores</div>
                 </div>
-
                 <div class="item-galeria">
                     <img src="imagens/exterior/pormenor2.jpg" alt="Detalhe do jardim" loading="lazy">
                     <div class="legenda">Cantinhos do Jardim</div>
                 </div>
-
-                <!-- Fachada / Vista Geral -->
                 <div class="item-galeria">
                     <img src="imagens/exterior/exterior/exterior1.jpg" alt="Fachada da casa" loading="lazy">
                     <div class="legenda">Arquitetura Tradicional</div>
                 </div>
-
-                <!-- Entrada / Estacionamento -->
                 <div class="item-galeria">
                     <img src="imagens/exterior/entrada/entrada1.jpg" alt="Entrada e acesso privado" loading="lazy">
                     <div class="legenda">Entrada Privada</div>
                 </div>
-
-                <!-- Segunda Foto de Drone / Panorâmica -->
                 <div class="item-galeria">
                     <img src="imagens/exterior/drone/drone2.jpg" alt="Vista panorâmica da envolvente" loading="lazy">
                     <div class="legenda">Envolvente Natural</div>
                 </div>
-
             </div>
         </div>
         
-        <!-- GALERIA DE INTERIOR -->
+        <!-- Galeria Interior -->
         <div class="galeria-container">
             <h3>Interior da Casa</h3>
             <div class="grid-galeria">
-                
-                <!-- Sala Principal -->
                 <div class="item-galeria grande">
                     <img src="imagens/interior/sala/sala1.jpg" alt="Sala de Estar da Casa da Tapada" loading="lazy">
                     <div class="legenda">Sala de Estar</div>
                 </div>
-
-                <!-- Cozinha -->
                 <div class="item-galeria">
                     <img src="imagens/interior/cozinha/cozinha1.jpg" alt="Cozinha Equipada" loading="lazy">
                     <div class="legenda">Área de Refeições</div>
                 </div>
-
                 <div class="item-galeria">
                     <img src="imagens/interior/cozinha/cozinha2.jpg" alt="Detalhe da Cozinha" loading="lazy">
                     <div class="legenda">Cozinha Equipada</div>
                 </div>
-
                 <div class="item-galeria">
                     <img src="imagens/interior/cozinha/cozinha3.jpg" alt="Equipamentos da Cozinha" loading="lazy">
                     <div class="legenda">Salamandra a Lenha</div>
                 </div>
-
-                <!-- Sala (Segunda Foto) -->
                 <div class="item-galeria">
                     <img src="imagens/interior/sala/sala2.jpg" alt="Ângulo da Sala de Estar" loading="lazy">
                     <div class="legenda">Sala de Estar / Jantar</div>
                 </div>
-
-                <!-- Quartos -->
                 <div class="item-galeria">
                     <img src="imagens/interior/quarto1/quarto1.jpg" alt="Quarto 1" loading="lazy">
                     <div class="legenda">Quarto 1</div>
                 </div>
-
                 <div class="item-galeria">
                     <img src="imagens/interior/quarto2/quarto2.jpg" alt="Quarto 2" loading="lazy">
                     <div class="legenda">Quarto 2</div>
                 </div>
-
                 <div class="item-galeria">
                     <img src="imagens/interior/quarto3/quarto3.jpg" alt="Quarto 3" loading="lazy">
                     <div class="legenda">Quarto 3</div>
                 </div>
-
-                <!-- Casas de Banho -->
                 <div class="item-galeria">
                     <img src="imagens/interior/wc1/wc1.jpg" alt="Casa de Banho 1" loading="lazy">
                     <div class="legenda">Casa de Banho 1</div>
                 </div>
-
                 <div class="item-galeria">
                     <img src="imagens/interior/wc2/wc2.jpg" alt="Casa de Banho 2" loading="lazy">
                     <div class="legenda">Casa de Banho 2</div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- SECÇÃO DE COMODIDADES -->
+    <!-- 4. COMODIDADES -->
     <section id="comodidades">
         <h2>Comodidades Principais</h2>
         <div class="grid-comodidades">
@@ -276,7 +233,7 @@
         </div>
     </section>
 
-    <!-- SECÇÃO DE LOCALIZAÇÃO -->
+    <!-- 5. LOCALIZAÇÃO -->
     <section id="localizacao" class="fundo-suave">
         <h2>Localização</h2>
         <div class="conteudo-localizacao">
@@ -284,7 +241,7 @@
             
             <div class="container-mapa">
                 <iframe 
-                    src="https://maps.google.com/maps?q=Casa+da+Tapada,+R.+Tapada+428,+4560-017+Abrag%C3%A3o&t=k&z=17&ie=UTF8&iwloc=&output=embed" 
+                    src="https://maps.google.com/maps?q=Casa+da+Tapada,+R.+Tapada+428,+4560-017+Abrag%C3%A3o&amp;t=k&amp;z=17&amp;ie=UTF8&amp;iwloc=&amp;output=embed" 
                     width="100%" 
                     height="380" 
                     style="border:0;" 
@@ -295,14 +252,14 @@
             </div>
 
             <div class="detalhes-mapa" style="margin-top: 1.5rem;">
-                <a href="https://maps.google.com/?cid=11087709186637530063" target="_blank" class="btn-mapa">
+                <a href="https://maps.google.com/?cid=11087709186637530063" target="_blank" rel="noopener noreferrer" class="btn-mapa">
                     📍 Abrir no Google Maps
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- SECÇÃO: REGRAS DA CASA -->
+    <!-- 6. REGRAS DA CASA -->
     <section id="regras">
         <h2>Regras da Casa e Condições</h2>
         <div class="grelha-regras">
@@ -333,7 +290,7 @@
         </div>
     </section>
 
-    <!-- SECÇÃO: GUIA LOCAL -->
+    <!-- 7. GUIA LOCAL -->
     <section id="guia-local" class="fundo-suave">
         <h2>O que Fazer na Região</h2>
         <p class="subtitulo-guia">Descubra os encantos de Abragão, Penafiel e do vale do Rio Tâmega e Douro durante a sua estadia.</p>
@@ -359,60 +316,84 @@
         </div>
     </section>
 
-    <!-- SECÇÃO DE RESERVAS E CALENDÁRIO -->
-<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/pt.js"></script>
-<!-- PLUGIN OFICIAL DO GOOGLE CALENDAR -->
-<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@5.11.3/main.global.min.js"></script>
+    <!-- 8. RESERVAS E CALENDÁRIO -->
+    <section id="reservas">
+        <h2>Disponibilidade e Reservas</h2>
+        <p>Consulte o calendário abaixo para verificar a disponibilidade da <strong>Casa da Tapada</strong>. Os dias assinalados correspondem a períodos já reservados.</p>
 
-<section id="reservas">
-    <h2>Disponibilidade e Reservas</h2>
-    <p>Consulte o calendário abaixo para verificar a disponibilidade da <strong>Casa da Tapada</strong>. Os dias assinalados correspondem a períodos já reservados.</p>
+        <div class="container-calendario">
+            <div id="calendario-google"></div>
+        </div>
 
-    <!-- CONTAINER DO CALENDÁRIO -->
-    <div class="container-calendario">
-        <div id="calendario-google"></div>
+        <p class="nota-calendario">Para reservar as suas datas ou esclarecer dúvidas, contacte-nos diretamente por WhatsApp ou preencha o formulário.</p>
+
+        <div style="margin: 2rem 0;">
+            <a href="https://wa.me/351934392279" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+                💬 Reservar por WhatsApp
+            </a>
+        </div>
+
+        <div class="container-formulario">
+            <h3>Enviar Pedido de Informação</h3>
+            <form action="https://formspree.io/f/xykrjrnr" method="POST" class="formulario-contacto">
+                <div class="grupo-form">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="O seu nome" required>
+                </div>
+
+                <div class="grupo-form">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="O seu e-mail de contacto" required>
+                </div>
+
+                <div class="grupo-form">
+                    <label for="telefone">Telefone / WhatsApp</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="Ex: +351 912 345 678">
+                </div>
+
+                <div class="grupo-form">
+                    <label for="mensagem">Mensagem / Datas Pretendidas</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Indique as datas pretendidas ou as suas dúvidas..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="conteudo-rodape">
+            <p>&copy; 2026 Casa da Tapada. Todos os direitos reservados.</p>
+            
+            <div class="redes-sociais">
+                <a href="https://www.instagram.com/casadatapada.abragao/" target="_blank" rel="noopener noreferrer" class="link-rede" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.25a4.002 4.002 0 1 0 0 8.004 4.002 4.002 0 0 0 0-8.004zm0 1.442a2.56 2.56 0 1 1 0 5.12 2.56 2.56 0 0 1 0-5.12z"/>
+                    </svg>
+                    <span>Instagram</span>
+                </a>
+                
+                <a href="https://www.facebook.com/profile.php?id=100064217104631" target="_blank" rel="noopener noreferrer" class="link-rede" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                    </svg>
+                    <span>Facebook</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL (LIGHTBOX) -->
+    <div id="imagemModal" class="modal-imagem" onclick="fecharModal()">
+        <span class="fechar-modal">&times;</span>
+        <img class="conteudo-modal" id="imgAmpliada" alt="Imagem ampliada">
+        <div id="legendaModal" class="legenda-modal"></div>
     </div>
 
-    <p class="nota-calendario">Para reservar as suas datas ou esclarecer dúvidas, contacte-nos diretamente por WhatsApp ou preencha o formulário.</p>
-
-    <div style="margin: 2rem 0;">
-        <a href="https://wa.me/351934392279" target="_blank" class="btn-whatsapp">
-            💬 Reservar por WhatsApp
-        </a>
-    </div>
-
-    <div class="container-formulario">
-        <h3>Enviar Pedido de Informação</h3>
-        <form action="https://formspree.io/f/xykrjrnr" method="POST" class="formulario-contacto">
-            <div class="grupo-form">
-                <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" name="nome" placeholder="O seu nome" required>
-            </div>
-
-            <div class="grupo-form">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="O seu e-mail de contacto" required>
-            </div>
-
-            <div class="grupo-form">
-                <label for="telefone">Telefone / WhatsApp</label>
-                <input type="tel" id="telefone" name="telefone" placeholder="Ex: +351 912 345 678">
-            </div>
-
-            <div class="grupo-form">
-                <label for="mensagem">Mensagem / Datas Pretendidas</label>
-                <textarea id="mensagem" name="mensagem" rows="5" placeholder="Indique as datas pretendidas ou as suas dúvidas..." required></textarea>
-            </div>
-
-            <button type="submit" class="btn-enviar">Enviar Mensagem</button>
-        </form>
-    </div>
-</section>
-
-<!-- Script de Inicialização Direta via Google Calendar API -->
-<script>
+    <!-- SCRIPTS -->
+    <script>
+    // FullCalendar Init
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendario-google');
 
@@ -427,16 +408,10 @@
             buttonText: {
                 today: 'Hoje'
             },
-            
-            // ⚠️ Chave de API da Google Cloud
             googleCalendarApiKey: 'AIzaSyCBZyed58maqMxBeCjwBLn9aYsB6i8N5eI',
-
-            // ID do teu calendário de Reservas
             events: {
                 googleCalendarId: '6e991fccb7a1c60f33087f0977b5d2e7b766f5b11c37dde6a4f92d86c13d8e86@group.calendar.google.com'
             },
-
-            // Oculta títulos privados e mostra "Ocupado"
             eventDidMount: function(info) {
                 info.el.innerText = 'Ocupado';
             },
@@ -445,42 +420,8 @@
 
         calendar.render();
     });
-</script>
 
-    <<!-- RODAPÉ COMPACTO COM REDES SOCIAIS -->
-    <footer>
-        <div class="conteudo-rodape">
-            <p>&copy; 2026 Casa da Tapada. Todos os direitos reservados.</p>
-            
-            <div class="redes-sociais">
-                <a href="https://www.instagram.com/casadatapada.abragao/" target="_blank" class="link-rede" aria-label="Instagram">
-                    <!-- Ícone SVG Moderno do Instagram -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.25a4.002 4.002 0 1 0 0 8.004 4.002 4.002 0 0 0 0-8.004zm0 1.442a2.56 2.56 0 1 1 0 5.12 2.56 2.56 0 0 1 0-5.12z"/>
-                    </svg>
-                    <span>Instagram</span>
-                </a>
-                
-                <a href="https://www.facebook.com/profile.php?id=100064217104631" target="_blank" class="link-rede" aria-label="Facebook">
-                    <!-- Ícone SVG Moderno do Facebook -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-                    </svg>
-                    <span>Facebook</span>
-                </a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- MODAL PARA AMPLIAR IMAGENS (LIGHTBOX) -->
-    <div id="imagemModal" class="modal-imagem" onclick="fecharModal()">
-        <span class="fechar-modal">&times;</span>
-        <img class="conteudo-modal" id="imgAmpliada">
-        <div id="legendaModal" class="legenda-modal"></div>
-    </div>
-
-    <!-- Script do Google Tradutor + Função de Troca de Idioma -->
-    <script type="text/javascript">
+    // Google Translate Init & Switcher
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'pt',
@@ -489,7 +430,7 @@
       }, 'google_translate_element');
     }
 
-    function mudarIdioma(lang) {
+    function mudarIdioma(lang, ev) {
       if (lang === 'pt') {
         document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=" + window.location.hostname + "; path=/;";
@@ -498,7 +439,7 @@
       }
 
       document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+      if (ev && ev.target) ev.target.classList.add('active');
 
       var select = document.querySelector('.goog-te-combo');
       if (select) {
@@ -506,11 +447,8 @@
         select.dispatchEvent(new Event('change'));
       }
     }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <!-- Script para Abrir/Fechar a Imagem no Modal (Lightbox) -->
-    <script>
+    // Lightbox / Modal
     document.addEventListener("DOMContentLoaded", function () {
         const imagens = document.querySelectorAll(".item-galeria img");
         const modal = document.getElementById("imagemModal");
@@ -543,6 +481,7 @@
         }
     });
     </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <!-- Botão Flutuante do WhatsApp -->
     <a href="https://wa.me/351934392279?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Casa%20da%20Tapada%20e%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es." 

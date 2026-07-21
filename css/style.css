@@ -1,32 +1,26 @@
 /* ==========================================================================
-   1. PALETA DE CORES UNIFICADA (Tom Camel / Bege Amadeirado Unificado)
+   1. RESET, VARIÁVEIS E BASE
    ========================================================================== */
+
 :root {
-    /* Cor Principal Única */
-    --cor-principal: #C8A97E;        /* Usada em botões, destaques, bordas, títulos e rodapé */
-    --cor-principal-hover: #B5956A;  /* Tom um pouco mais escuro para o efeito hover */
-    --cor-secundaria: #C8A97E;       /* Unificada para manter coerência visual */
-    
-    /* Cores de Fundo */
-    --cor-fundo: #FAF9F6;            /* Branco off-white suave para o corpo do site */
-    --cor-fundo-suave: #F9F6F0;      /* Bege muito claro / Creme para secções alternadas */
-    --cor-branca: #FFFFFF;           /* Branco puro para cartões */
-    --cor-rodape: #C8A97E;           /* Rodapé exatamente na mesma cor dos botões e calendário */
-
-    /* Cores de Texto */
-    --cor-texto: #4A4238;            /* Castanho escuro / quente para excelente leitura */
-    --cor-texto-claro: #FFFFFF;      /* Texto branco sobre elementos na cor principal */
-    
-    /* Cor Oficial WhatsApp */
-    --cor-whatsapp: #25D366;
-    --cor-whatsapp-hover: #1EBD57;
-
-    /* Tipografia e Sombras */
+    --cor-principal: #2c3e50;
+    --cor-secundaria: #d4af37;
+    --cor-fundo: #f8f9fa;
+    --cor-texto: #333333;
+    --cor-texto-suave: #666666;
+    --cor-branca: #ffffff;
+    --cor-sucesso: #25d366;
+    --cor-erro: #e74c3c;
     --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --sombra: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --sombra-forte: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --transicao: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --raio-borda: 8px;
 }
 
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -34,32 +28,98 @@
 
 html {
     scroll-behavior: smooth;
-    font-family: var(--fonte-principal);
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    line-height: 1.6;
+    font-size: 16px;
 }
 
 body {
-    top: 0 !important;
+    font-family: var(--fonte-principal);
+    color: var(--cor-texto);
+    background-color: var(--cor-branca);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Esconder elementos indesejados do Google Tradutor */
-.goog-te-banner-frame, 
-.goog-te-balloon-part,
-.skiptranslate {
-    display: none !important;
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol {
+    list-style: none;
 }
 
 /* ==========================================================================
-   2. NAVBAR / MENU
+   2. ESTRUTURA GERAL E TÍTULOS
    ========================================================================== */
+
+section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.fundo-suave {
+    background-color: var(--cor-fundo);
+    max-width: 100%;
+    width: 100%;
+}
+
+.fundo-suave > .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5rem 2rem;
+}
+
+h1, h2, h3, h4 {
+    color: var(--cor-principal);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--cor-secundaria);
+    margin: 0.8rem auto 0;
+    border-radius: 2px;
+}
+
+.subtitulo-seccao {
+    text-align: center;
+    color: var(--cor-texto-suave);
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+}
+
+/* ==========================================================================
+   3. CAVEÇALHO E NAVEGAÇÃO
+   ========================================================================== */
+
 header {
-    background-color: var(--cor-branca);
-    box-shadow: var(--sombra);
     position: sticky;
     top: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     z-index: 1000;
+    transition: var(--transicao);
 }
 
 nav {
@@ -68,245 +128,247 @@ nav {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 1.2rem 2rem;
 }
 
-nav .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+.logo {
+    font-size: 1.6rem;
+    font-weight: 800;
     color: var(--cor-principal);
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-destaque {
+    color: var(--cor-secundaria);
 }
 
 nav ul {
     display: flex;
-    list-style: none;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.8rem;
 }
 
 nav ul li a {
-    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
     color: var(--cor-texto);
-    font-weight: 500;
-    transition: color 0.3s;
+    position: relative;
+    padding: 0.2rem 0;
+    transition: var(--transicao);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--cor-secundaria);
+    transition: var(--transicao);
 }
 
 nav ul li a:hover {
-    color: var(--cor-principal);
+    color: var(--cor-secundaria);
 }
 
-nav ul li a.btn-nav {
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.btn-nav {
     background-color: var(--cor-principal);
-    color: var(--cor-texto-claro);
-    padding: 0.6rem 1.2rem;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    color: var(--cor-branca) !important;
+    padding: 0.6rem 1.4rem !important;
+    border-radius: 25px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.2);
 }
 
-nav ul li a.btn-nav:hover {
-    background-color: var(--cor-principal-hover);
+.btn-nav::after {
+    display: none !important;
+}
+
+.btn-nav:hover {
+    background-color: var(--cor-secundaria);
+    transform: translateY(-2px);
+}
+
+/* Seletor de Idiomas */
+.item-tradutor {
+    display: flex;
+    align-items: center;
+    background: var(--cor-fundo);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.seletor-lingua {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.lang-btn {
+    cursor: pointer;
+    color: var(--cor-texto-suave);
+    transition: var(--transicao);
+    text-transform: uppercase;
+}
+
+.lang-btn:hover, 
+.lang-btn.active {
+    color: var(--cor-secundaria);
+}
+
+.separador {
+    color: #ccc;
+    font-weight: normal;
 }
 
 /* ==========================================================================
-   3. HERO SECTION
+   4. HERO SECTION
    ========================================================================== */
+
 #hero {
-    min-height: 75vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    height: 85vh;
+    min-height: 550px;
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
+                url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    position: relative;
-    padding: 3rem 1rem;
-}
-
-#hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        180deg, 
-        rgba(0, 0, 0, 0.25) 0%, 
-        rgba(74, 66, 56, 0.45) 100%
-    ); 
-    z-index: 1;
+    color: var(--cor-branca);
+    max-width: 100%;
+    padding: 0 1.5rem;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
-    color: var(--cor-branca);
-    padding: 2rem 1.5rem;
     max-width: 850px;
-    background: rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(3px);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    z-index: 2;
 }
 
 .hero-content h1 {
     font-size: 3.2rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
-    line-height: 1.2;
+    color: var(--cor-branca);
+    margin-bottom: 1.2rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: -0.5px;
 }
 
 .hero-content p {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     margin-bottom: 2.2rem;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     font-weight: 300;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .btn-principal {
     display: inline-block;
-    background-color: var(--cor-principal);
-    color: var(--cor-texto-claro);
-    text-decoration: none;
-    padding: 1rem 2.2rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 6px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branca);
+    padding: 0.9rem 2.2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 30px;
+    transition: var(--transicao);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    letter-spacing: 0.5px;
 }
 
 .btn-principal:hover {
-    background-color: var(--cor-principal-hover);
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background-color: #c09d2e;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
 }
 
 /* ==========================================================================
-   4. SECÇÕES DE CONTEÚDO E ESTRUTURA
+   5. SOBRE A PROPRIEDADE
    ========================================================================== */
-section {
-    padding: 5rem 2rem;
-    max-width: 1200px;
+
+.card-biografia {
+    background: var(--cor-branca);
+    padding: 3rem;
+    border-radius: var(--raio-borda);
+    box-shadow: var(--sombra-suave);
+    text-align: center;
+    margin-bottom: 3.5rem;
+    border: 1px solid #eee;
+}
+
+.card-biografia p {
+    font-size: 1.1rem;
+    color: var(--cor-texto-suave);
+    max-width: 900px;
     margin: 0 auto;
 }
 
-section h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    color: var(--cor-principal);
-    margin-bottom: 3rem;
-    position: relative;
-}
-
-section h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: var(--cor-principal);
-    margin: 0.5rem auto 0 auto;
-}
-
-#regras,
-.seccao-regras {
-    max-width: 1200px;
-    width: 100%;
-    margin: 2rem auto;
-}
-
-.aviso-regras {
-    background-color: #fff3cd;
-    border-left: 5px solid #ffc107;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.aviso-regras p {
-    color: #856404;
-    font-weight: 500;
-}
-
-/* ==========================================================================
-   5. RESERVAS & WHATSAPP INTERNO
-   ========================================================================== */
-#reservas {
-    text-align: center;
-    background-color: var(--cor-branca);
-    border-radius: 8px;
-    box-shadow: var(--sombra);
-    padding: 4rem 2rem;
-    margin-bottom: 5rem;
-}
-
-#reservas p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-}
-
-.btn-whatsapp {
-    display: inline-block;
-    background-color: var(--cor-whatsapp);
-    color: var(--cor-branca);
-    text-decoration: none;
-    padding: 1rem 2.5rem;
-    font-size: 1.2rem;
+.selo-al {
+    margin-top: 1.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--cor-fundo);
+    padding: 0.6rem 1.4rem;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.85rem;
     font-weight: 600;
-    border-radius: 50px;
-    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-    transition: transform 0.2s, background-color 0.3s;
-}
-
-.btn-whatsapp:hover {
-    background-color: var(--cor-whatsapp-hover);
-    transform: translateY(-2px);
+    color: var(--cor-principal);
 }
 
 /* ==========================================================================
-   6. GALERIA DE FOTOS (CSS GRID)
+   6. GALERIA DE FOTOS (GRID RESPONSIVA)
    ========================================================================== */
+
 .galeria-container {
-    margin-bottom: 2rem;
+    margin-top: 3rem;
 }
 
 .galeria-container h3 {
     font-size: 1.5rem;
     color: var(--cor-principal);
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid #eef0ed;
-    padding-bottom: 0.5rem;
+    border-left: 4px solid var(--cor-secundaria);
+    padding-left: 0.8rem;
 }
 
 .grid-galeria {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.2rem;
 }
 
 .item-galeria {
     position: relative;
-    border-radius: 8px;
+    border-radius: var(--raio-borda);
     overflow: hidden;
-    box-shadow: var(--sombra);
-    height: 250px;
+    box-shadow: var(--sombra-suave);
+    aspect-ratio: 4 / 3;
+    cursor: pointer;
+}
+
+.item-galeria.grande {
+    grid-column: span 2;
+    grid-row: span 2;
 }
 
 .item-galeria img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: var(--transicao);
 }
 
 .item-galeria:hover img {
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
 
 .legenda {
@@ -314,349 +376,406 @@ section h2::after {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
     color: var(--cor-branca);
-    padding: 1.5rem 1rem 0.8rem 1rem;
-    font-size: 0.95rem;
+    padding: 1.5rem 1rem 0.8rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    pointer-events: none;
+    opacity: 0.9;
+    transition: var(--transicao);
 }
 
-@media (min-width: 992px) {
-    .grid-galeria .item-galeria.grande {
-        grid-column: span 2;
-        grid-row: span 2;
-        height: 516px;
-    }
+.item-galeria:hover .legenda {
+    opacity: 1;
 }
 
 /* ==========================================================================
-   7. COMODIDADES, LOCALIZAÇÃO & FORMULÁRIO
+   7. COMODIDADES E FACILIDADES
    ========================================================================== */
+
 .grid-comodidades {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 1.8rem;
+    margin-top: 2.5rem;
 }
 
 .card-comodidade {
-    background-color: var(--cor-branca);
+    background: var(--cor-branca);
     padding: 2rem 1.5rem;
-    border-radius: 8px;
+    border-radius: var(--raio-borda);
+    box-shadow: var(--sombra-suave);
     text-align: center;
-    box-shadow: var(--sombra);
-    transition: transform 0.3s ease;
+    border: 1px solid #f0f0f0;
+    transition: var(--transicao);
 }
 
 .card-comodidade:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-forte);
+    border-color: var(--cor-secundaria);
 }
 
 .card-comodidade .icone {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
     display: block;
-    margin-bottom: 0.8rem;
 }
 
 .card-comodidade h3 {
-    font-size: 1.2rem;
-    color: var(--cor-principal);
+    font-size: 1.15rem;
     margin-bottom: 0.5rem;
 }
 
-.fundo-suave {
-    background-color: var(--cor-fundo-suave);
-    border-radius: 8px;
-    padding: 3rem 2rem;
-}
-
-.conteudo-localizacao {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.btn-mapa {
-    display: inline-block;
-    margin-top: 1.5rem;
-    background-color: var(--cor-principal);
-    color: var(--cor-texto-claro);
-    text-decoration: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 4px;
-    font-weight: 500;
-    transition: background-color 0.3s;
-}
-
-.btn-mapa:hover {
-    background-color: var(--cor-principal-hover);
-}
-
-.container-mapa {
-    margin-top: 2rem;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--sombra);
-    background-color: #ddd;
-}
-
-.container-mapa iframe {
-    display: block;
-}
-
-.container-formulario {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
-    background-color: var(--cor-fundo);
-    padding: 2rem;
-    border-radius: 8px;
-    border: 1px solid #e2e0d8;
-}
-
-.container-formulario h3 {
-    color: var(--cor-principal);
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-.grupo-form {
-    margin-bottom: 1.2rem;
-}
-
-.grupo-form label {
-    display: block;
-    margin-bottom: 0.4rem;
-    font-weight: 600;
-    color: var(--cor-texto);
-}
-
-.grupo-form input,
-.grupo-form textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 1rem;
-}
-
-.grupo-form input:focus,
-.grupo-form textarea:focus {
-    outline: none;
-    border-color: var(--cor-principal);
-}
-
-.btn-enviar {
-    width: 100%;
-    background-color: var(--cor-principal);
-    color: var(--cor-texto-claro);
-    border: none;
-    padding: 1rem;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-enviar:hover {
-    background-color: var(--cor-principal-hover);
+.card-comodidade p {
+    font-size: 0.9rem;
+    color: var(--cor-texto-suave);
 }
 
 /* ==========================================================================
-   8. CALENDÁRIO DE DISPONIBILIDADE (GERAL)
+   8. REGRAS DA CASA
    ========================================================================== */
-.container-calendario {
-    max-width: 900px;
-    margin: 2rem auto;
-    background-color: var(--cor-branca);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: var(--sombra);
-    border: 1px solid #e2e0d8;
-    overflow: hidden;
-}
 
-.container-calendario iframe {
-    border-radius: 4px;
-    display: block;
-    width: 100%;
-}
-
-.nota-calendario {
-    font-size: 0.95rem;
-    color: #666;
-    margin-bottom: 1.5rem;
-}
-
-/* ==========================================================================
-   9. REGRAS DA CASA & GUIA
-   ========================================================================== */
-.grelha-regras,
-.regras-container, 
-.regras-grid {
+.grelha-regras {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.8rem;
-    margin-top: 2rem;
-    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
 }
 
 .cartao-regra {
-    background-color: var(--cor-branca);
-    padding: 2rem 1.2rem;
-    border-radius: 10px;
-    border: 1px solid #e2e0d8;
-    box-shadow: var(--sombra);
+    background: var(--cor-branca);
+    padding: 1.8rem;
+    border-radius: var(--raio-borda);
+    box-shadow: var(--sombra-suave);
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    border-top: 3px solid var(--cor-principal);
+    transition: var(--transicao);
+}
+
+.cartao-regra:hover {
+    transform: translateY(-4px);
+    border-top-color: var(--cor-secundaria);
 }
 
 .icone-regra {
     font-size: 2.2rem;
     margin-bottom: 0.8rem;
+    display: block;
 }
 
 .cartao-regra h3 {
-    margin-bottom: 0.6rem;
-    color: var(--cor-principal);
     font-size: 1.1rem;
+    margin-bottom: 0.4rem;
 }
 
 .cartao-regra p {
-    font-size: 0.95rem;
-    margin: 0.2rem 0;
-    line-height: 1.4;
+    font-size: 0.88rem;
+    color: var(--cor-texto-suave);
 }
 
-.subtitulo-guia {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 2rem auto;
-    color: #555;
-}
+/* ==========================================================================
+   9. GUIA LOCAL E ATRAÇÕES
+   ========================================================================== */
 
 .grelha-guia {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.8rem;
+    margin-top: 2.5rem;
 }
 
 .cartao-guia {
-    background-color: var(--cor-branca);
+    background: var(--cor-branca);
+    border-radius: var(--raio-borda);
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    transition: var(--transicao);
     padding: 1.8rem;
-    border-radius: 8px;
-    border-left: 4px solid var(--cor-principal);
-    box-shadow: var(--sombra);
-    text-align: left;
+    border: 1px solid #eee;
+}
+
+.cartao-guia:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-forte);
 }
 
 .categoria-guia {
-    display: inline-block;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    font-weight: bold;
-    color: var(--cor-principal);
-    background-color: rgba(200, 169, 126, 0.15);
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    margin-bottom: 0.8rem;
+    letter-spacing: 1.2px;
+    color: var(--cor-secundaria);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    display: block;
 }
 
 .cartao-guia h3 {
-    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
 }
 
 .cartao-guia p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #444;
+    font-size: 0.92rem;
+    color: var(--cor-texto-suave);
 }
 
 /* ==========================================================================
-   10. SELETOR DE IDIOMA
+   10. LOCALIZAÇÃO E MAPA
    ========================================================================== */
-.item-tradutor {
-    display: flex;
-    align-items: center;
-    margin-left: 0.5rem;
+
+.conteudo-localizacao {
+    text-align: center;
 }
 
-.seletor-lingua {
-    display: flex;
+.texto-localizacao {
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    font-size: 1.05rem;
+    color: var(--cor-texto-suave);
+}
+
+.container-mapa {
+    margin-top: 1.8rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    border: 1px solid #e0e0e0;
+}
+
+.container-mapa iframe {
+    width: 100%;
+    height: 420px;
+    border: 0;
+}
+
+.btn-mapa {
+    display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
-    font-size: 0.85rem;
+    gap: 0.5rem;
+    margin-top: 1.8rem;
+    padding: 0.7rem 1.8rem;
+    background: var(--cor-principal);
+    color: var(--cor-branca);
+    border-radius: 25px;
     font-weight: 600;
-    background-color: #f2f0eb;
-    padding: 4px 10px;
-    border-radius: 20px;
-    border: 1px solid #e2e0d8;
+    transition: var(--transicao);
 }
 
-.lang-btn {
-    color: #666666;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    user-select: none;
-    padding: 2px 6px;
+.btn-mapa:hover {
+    background: var(--cor-secundaria);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   11. CALENDÁRIO DE DISPONIBILIDADE (FULLCALENDAR)
+   ========================================================================== */
+
+.container-calendario {
+    background: var(--cor-branca);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--sombra-suave);
+    margin: 2.5rem 0 1.5rem 0;
+    border: 1px solid #eee;
+}
+
+/* Estilização das datas ocupadas */
+.fc-event-busy, .fc-event {
+    background-color: var(--cor-erro) !important;
+    border-color: var(--cor-erro) !important;
+    color: white !important;
+    text-align: center;
+    font-weight: bold;
     border-radius: 4px;
+    font-size: 0.8rem;
 }
 
-.lang-btn:hover {
+.fc-toolbar-title {
+    font-size: 1.3rem !important;
+    color: var(--cor-principal);
+    font-weight: 700;
+}
+
+.fc-button-primary {
+    background-color: var(--cor-principal) !important;
+    border-color: var(--cor-principal) !important;
+    transition: var(--transicao);
+}
+
+.fc-button-primary:hover {
+    background-color: var(--cor-secundaria) !important;
+    border-color: var(--cor-secundaria) !important;
+}
+
+.nota-calendario {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--cor-texto-suave);
+    margin-top: 1rem;
+}
+
+/* ==========================================================================
+   12. FORMULÁRIO DE RESERVA E CONTATO
+   ========================================================================== */
+
+#reservas {
+    text-align: center;
+}
+
+.container-formulario {
+    max-width: 650px;
+    margin: 3rem auto 0;
+    background: var(--cor-fundo);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: var(--sombra-suave);
+    text-align: left;
+    border: 1px solid #e0e0e0;
+}
+
+.grupo-form {
+    margin-bottom: 1.4rem;
+}
+
+.grupo-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
     color: var(--cor-principal);
 }
 
-.lang-btn.active {
-    color: var(--cor-texto-claro);
-    font-weight: bold;
-    background-color: var(--cor-principal);
-    box-shadow: 0 0 8px rgba(200, 169, 126, 0.4);
+.grupo-form input, 
+.grupo-form textarea,
+.grupo-form select {
+    width: 100%;
+    padding: 0.85rem;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    background-color: var(--cor-branca);
+    transition: var(--transicao);
 }
 
-.separador {
-    color: #ccc;
-    font-size: 0.75rem;
+.grupo-form input:focus, 
+.grupo-form textarea:focus,
+.grupo-form select:focus {
+    outline: none;
+    border-color: var(--cor-principal);
+    box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+}
+
+.linha-dupla {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.btn-enviar {
+    width: 100%;
+    background: var(--cor-principal);
+    color: var(--cor-branca);
+    padding: 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transicao);
+    margin-top: 0.5rem;
+}
+
+.btn-enviar:hover {
+    background: var(--cor-secundaria);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.divisor-reserva {
+    margin: 2.5rem 0;
+    position: relative;
+    text-align: center;
+}
+
+.divisor-reserva::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #dddddd;
+    z-index: 1;
+}
+
+.divisor-reserva span {
+    position: relative;
+    z-index: 2;
+    background: var(--cor-branca);
+    padding: 0 1rem;
+    color: var(--cor-texto-suave);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background-color: var(--cor-sucesso);
+    color: white;
+    padding: 0.9rem 2.2rem;
+    border-radius: 30px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    transition: var(--transicao);
+    font-size: 1rem;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebd56;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
 }
 
 /* ==========================================================================
-   11. LIGHTBOX / MODAL DE IMAGENS
+   13. JANELA MODAL / LIGHTBOX DE IMAGENS
    ========================================================================== */
+
 .modal-imagem {
     display: none;
     position: fixed;
-    z-index: 2000;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.88);
-    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2500;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 20px;
-    cursor: pointer;
-    animation: fadeIn 0.3s ease;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-imagem.ativo {
+    display: flex;
+    opacity: 1;
 }
 
 .conteudo-modal {
-    max-width: 90%;
-    max-height: 85vh;
-    border-radius: 8px;
+    max-width: 85%;
+    max-height: 80vh;
+    border-radius: 6px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
     object-fit: contain;
-    transition: transform 0.3s ease;
 }
 
 .legenda-modal {
-    margin-top: 15px;
-    color: #ffffff;
+    color: var(--cor-branca);
+    margin-top: 1.2rem;
     font-size: 1.1rem;
     font-weight: 500;
     text-align: center;
@@ -664,332 +783,162 @@ section h2::after {
 
 .fechar-modal {
     position: absolute;
-    top: 20px;
-    right: 30px;
-    color: #ffffff;
-    font-size: 40px;
-    font-weight: bold;
+    top: 25px;
+    right: 35px;
+    color: var(--cor-branca);
+    font-size: 45px;
+    font-weight: 300;
     cursor: pointer;
-    transition: color 0.2s;
+    line-height: 1;
+    transition: var(--transicao);
 }
 
 .fechar-modal:hover {
-    color: var(--cor-principal);
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    color: var(--cor-secundaria);
 }
 
 /* ==========================================================================
-   12. BOTÃO FLUTUANTE DE CONTACTO (WhatsApp)
+   14. BOTÃO FLUTUANTE DO WHATSAPP
    ========================================================================== */
-a.whatsapp-float,
+
 .whatsapp-float {
     position: fixed;
-    bottom: 25px;
-    left: 25px;
-    background-color: var(--cor-whatsapp);
-    color: #ffffff !important;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--cor-sucesso);
+    color: #ffffff;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    z-index: 1500;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-    z-index: 9999;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.2s;
+    font-size: 1.8rem;
+    transition: var(--transicao);
 }
 
-a.whatsapp-float:hover,
 .whatsapp-float:hover {
-    background-color: var(--cor-whatsapp-hover);
-    transform: scale(1.05);
+    transform: scale(1.12);
+    background-color: #1ebd56;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }
 
 /* ==========================================================================
-   13. FOOTER (RODAPÉ)
+   15. RODAPÉ (FOOTER)
    ========================================================================== */
+
 footer {
-    background-color: var(--cor-rodape);
-    color: var(--cor-texto);
-    padding: 1.2rem 1.5rem;
-    font-size: 0.85rem;
-    border-top: 1px solid var(--cor-principal-hover);
+    background-color: var(--cor-principal);
+    color: var(--cor-branca);
+    padding: 3rem 1rem 2rem 1rem;
+    border-top: 3px solid var(--cor-secundaria);
 }
 
 .conteudo-rodape {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
-.conteudo-rodape p {
-    margin: 0;
-    font-weight: 500;
+.copyright {
+    font-size: 0.9rem;
+    color: #a0aec0;
 }
 
 .redes-sociais {
     display: flex;
-    gap: 0.8rem;
+    gap: 1.5rem;
 }
 
 .link-rede {
-    color: var(--cor-texto);
-    text-decoration: none;
-    font-weight: 600;
-    padding: 0.3rem 0.8rem;
-    border: 1px solid rgba(74, 66, 56, 0.3);
-    border-radius: 4px;
-    font-size: 0.8rem;
-    background-color: rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
+    color: var(--cor-branca);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    transition: var(--transicao);
+    font-weight: 500;
 }
 
 .link-rede:hover {
-    background-color: rgba(255, 255, 255, 0.7);
-    border-color: var(--cor-texto);
-}
-
-/* Logos no rodapé */
-.logo-al,
-.logo-turismo,
-.parceiros-logos img {
-    height: auto;
-    max-height: 45px;
-    width: auto;
-    object-fit: contain;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-footer .logo-al,
-footer .logo-turismo,
-.logo-parceiro {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 4px 8px;
-    border-radius: 4px;
-    margin: 0 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    color: var(--cor-secundaria);
 }
 
 /* ==========================================================================
-   14. ESTILIZAÇÃO FLATPICKR / FULLCALENDAR (DESKTOP)
+   16. ADAPTAÇÕES RESPONSIVAS (MEDIA QUERIES)
    ========================================================================== */
-.flatpickr-calendar.inline {
-    margin: 0 auto;
-    border: 1px solid #E5DED6;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    background-color: var(--cor-branca);
-}
-
-.flatpickr-day.today {
-    border-color: var(--cor-principal) !important;
-}
-
-.flatpickr-day.selected, 
-.flatpickr-day.startRange, 
-.flatpickr-day.endRange, 
-.flatpickr-day.selected:hover {
-    background: var(--cor-principal) !important;
-    border-color: var(--cor-principal) !important;
-    color: var(--cor-texto-claro) !important;
-}
-
-.flatpickr-day.flatpickr-disabled, 
-.flatpickr-day.flatpickr-disabled:hover {
-    color: #d3cbd2 !important;
-    opacity: 0.4;
-}
-
-.flatpickr-months .flatpickr-month {
-    color: var(--cor-texto);
-    fill: var(--cor-texto);
-}
-
-/* Base FullCalendar */
-.fc .fc-daygrid-day-frame {
-    min-height: 85px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.fc-day-past {
-    background-color: #f4f4f4 !important;
-    opacity: 0.6;
-    pointer-events: none;
-}
-
-.fc .fc-toolbar-title {
-    color: var(--cor-texto) !important;
-    font-size: 1.35rem;
-    font-weight: 600;
-    text-transform: capitalize;
-}
-
-.fc .fc-col-header-cell-cushion {
-    color: var(--cor-texto) !important;
-}
-
-.fc .fc-button-primary {
-    background-color: #F4EBE1 !important;
-    border-color: #E2D4C3 !important;
-    color: var(--cor-texto) !important;
-    border-radius: 6px;
-    font-weight: 600;
-}
-
-.fc .fc-button-primary:hover,
-.fc .fc-button-primary:active {
-    background-color: var(--cor-principal) !important;
-    border-color: var(--cor-principal-hover) !important;
-    color: var(--cor-texto-claro) !important;
-}
-
-.fc .fc-daygrid-day.fc-day-today {
-    background-color: var(--cor-fundo-suave) !important;
-}
-
-/* Eventos / Reservas 'Ocupado' */
-.fc-event,
-.fc-daygrid-event {
-    background-color: var(--cor-principal) !important;
-    border-color: var(--cor-principal-hover) !important;
-    color: #ffffff !important;
-    text-align: center;
-    font-weight: 700 !important;
-    padding: 4px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    margin-top: 2px;
-    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
-}
-
-/* ==========================================================================
-   15. RESPONSIVIDADE E OTIMIZAÇÕES MOBILE (TELEMÓVEL)
-   ========================================================================== */
-@media (min-width: 768px) {
-    .conteudo-rodape {
-        flex-direction: row;
-        padding: 0.5rem 1rem;
-    }
-}
 
 @media (max-width: 992px) {
-    .grelha-regras,
-    .regras-container, 
-    .regras-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+    section {
+        padding: 4rem 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.6rem;
     }
 }
 
 @media (max-width: 768px) {
-    /* --- NAV / MENU COMPACTO --- */
     nav {
-        padding: 0.6rem 1rem !important;
-        gap: 0.5rem !important;
         flex-direction: column;
-    }
-
-    nav .logo {
-        font-size: 1.3rem;
+        gap: 1.2rem;
+        padding: 1rem;
     }
 
     nav ul {
-        gap: 0.4rem 0.8rem !important;
-        justify-content: center;
         flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
     }
 
-    nav ul li a {
-        font-size: 0.85rem;
-    }
-
-    nav ul li a.btn-nav {
-        padding: 0.3rem 0.8rem;
-        font-size: 0.85rem;
-    }
-
-    .item-tradutor {
-        margin-left: 0;
-        margin-top: 0.2rem;
-    }
-
-    .seletor-lingua {
-        padding: 2px 8px;
-        font-size: 0.75rem;
-    }
-
-    /* --- HERO --- */
     .hero-content h1 {
-        font-size: 1.8rem !important;
+        font-size: 2rem;
     }
 
     .hero-content p {
-        font-size: 0.95rem !important;
-        margin-bottom: 1.5rem;
+        font-size: 1.05rem;
     }
 
-    section {
-        padding: 3rem 1rem;
+    .item-galeria.grande {
+        grid-column: span 1;
+        grid-row: span 1;
     }
 
-    /* --- CALENDÁRIO SLIM (FIT TOTAL EM MOBILE SEM SCROLL) --- */
-    .container-calendario {
-        width: 100%;
-        padding: 8px 4px !important;
-        margin: 1rem auto !important;
+    .linha-dupla {
+        grid-template-columns: 1fr;
     }
 
-    .fc .fc-daygrid-day-frame {
-        min-height: 48px !important; /* Altura reduzida para o mês caber sem scroll */
+    .conteudo-rodape {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .fc .fc-toolbar {
-        margin-bottom: 0.5rem !important;
-    }
-
-    .fc .fc-toolbar-title {
-        font-size: 1.1rem !important;
-    }
-
-    .fc .fc-button {
-        padding: 0.2rem 0.5rem !important;
-        font-size: 0.8rem !important;
-    }
-
-    .fc .fc-col-header-cell {
-        padding: 2px 0 !important;
-    }
-
-    .fc .fc-col-header-cell-cushion {
-        font-size: 0.75rem !important;
-    }
-
-    .fc-event,
-    .fc-daygrid-event {
-        padding: 1px 2px !important;
-        margin-top: 1px !important;
-        font-size: 0.65rem !important;
-        line-height: 1.1 !important;
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.5rem;
     }
 }
 
-@media (max-width: 576px) {
-    .grelha-regras,
-    .regras-container, 
-    .regras-grid {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .card-biografia {
+        padding: 1.5rem;
+    }
+
+    .container-formulario {
+        padding: 1.5rem;
     }
 }
