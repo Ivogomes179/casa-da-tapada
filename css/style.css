@@ -581,33 +581,33 @@ nav ul li a:hover::after {
 }
 
 /* ==========================================================================
-   11. CALENDÁRIO DE DISPONIBILIDADE (COMPACTO SEM NEED DE SCROLL)
+   11. CALENDÁRIO DE DISPONIBILIDADE (COMPACTO EM DESKTOP E ADAPTADO A MOBILE)
    ========================================================================== */
 
 .container-calendario {
     background: var(--cor-branca);
-    padding: 1.5rem;        /* Reduzido padding */
+    padding: 1.5rem;
     border-radius: 12px;
     box-shadow: var(--sombra-suave);
     margin: 1.5rem auto;
-    max-width: 950px;       /* Largura otimizada para enquadramento */
+    max-width: 950px;
     border: 1px solid #eee;
 }
 
-/* Redução da altura das semanas/dias */
+/* Redução da altura no Desktop */
 .fc .fc-daygrid-day-frame {
-    min-height: 52px !important; /* Células mais estreitas na vertical */
+    min-height: 52px !important;
 }
 
 .fc .fc-scroller {
-    overflow: hidden !important; /* Impede criação de scroll interno */
+    overflow: hidden !important;
 }
 
 .fc-daygrid-body {
     width: 100% !important;
 }
 
-/* Estilização e compactação das barras de "Ocupado" */
+/* Estilização das barras de "Ocupado" */
 .fc-event-busy, .fc-event {
     background-color: var(--cor-erro) !important;
     border-color: var(--cor-erro) !important;
@@ -618,6 +618,8 @@ nav ul li a:hover::after {
     font-size: 0.72rem !important;
     padding: 2px 4px !important;
     margin-top: 2px !important;
+    cursor: default !important;      /* Remove o cursor de link/mãozinha ao passar por cima */
+    pointer-events: none !important; /* BLOQUEIA TOTALMENTE O CLIQUE no evento via CSS */
 }
 
 .fc-toolbar {
@@ -653,6 +655,50 @@ nav ul li a:hover::after {
     font-size: 0.85rem;
     color: var(--cor-texto-suave);
     margin-top: 0.8rem;
+}
+
+/* --------------------------------------------------------------------------
+   AJUSTES RESPONSIVOS PARA TELEMÓVEIS (SEM ESMAGAR OS DIAS)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .container-calendario {
+        padding: 0.6rem 0.2rem !important; /* Maximiza o espaço útil no ecrã do telemóvel */
+        margin: 1rem auto;
+    }
+
+    /* Aumenta a altura mínima no telemóvel para o bloco não parecer "esmagado" */
+    .fc .fc-daygrid-day-frame {
+        min-height: 62px !important; 
+    }
+
+    /* Ajusta o número do dia dentro da célula */
+    .fc .fc-daygrid-day-top {
+        flex-direction: row !important;
+        justify-content: center !important;
+        font-size: 0.75rem !important;
+    }
+
+    .fc-toolbar-title {
+        font-size: 1rem !important;
+    }
+
+    .fc-button-primary {
+        padding: 0.2rem 0.4rem !important;
+        font-size: 0.75rem !important;
+    }
+
+    .fc-col-header-cell {
+        font-size: 0.7rem !important;
+    }
+
+    /* Otimiza a barra "Ocupado" para caber em colunas finas */
+    .fc-event-busy, .fc-event {
+        font-size: 0.60rem !important;
+        padding: 1px 1px !important;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
 }
 
 /* ==========================================================================
