@@ -744,6 +744,43 @@ footer {
 }
 
 /* ==========================================================================
+   AJUSTE DE VISIBILIDADE DOS LOGOS (AL / TURISMO DE PORTUGAL)
+   ========================================================================== */
+.logo-al,
+.logo-turismo,
+.parceiros-logos img {
+    height: auto;
+    max-height: 45px; /* Define uma altura máxima uniforme */
+    width: auto;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15)); /* Garante destaque */
+}
+
+/* Caso os logos estejam dentro do rodapé escuro e sejam escuros */
+footer .logo-al,
+footer .logo-turismo {
+    background-color: rgba(255, 255, 255, 0.9); /* Adiciona fundo branco suave se o logo for escuro */
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Estilo para os logótipos do Rodapé */
+.logo-parceiro {
+    height: auto;
+    max-height: 45px;
+    width: auto;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: rgba(255, 255, 255, 0.95); /* Garante visibilidade se o fundo do footer for escuro */
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+
+/* ==========================================================================
    14. RESPONSIVIDADE (MEDIA QUERIES)
    ========================================================================== */
 @media (min-width: 768px) {
