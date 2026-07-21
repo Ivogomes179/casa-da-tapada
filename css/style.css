@@ -4,9 +4,11 @@
 :root {
     --cor-principal: #2c4a3e;   /* Verde floresta elegante */
     --cor-secundaria: #8c7863;  /* Tom terra/madeira aconchegante */
-    --cor-fundo: #faf9f6;       /* Branco off-white suave para descansar a vista */
+    --cor-fundo: #faf9f6;       /* Branco off-white suave */
     --cor-texto: #333333;       /* Cinza escuro para melhor legibilidade */
     --cor-branca: #ffffff;
+    --cor-whatsapp: #25D366;
+    --cor-whatsapp-hover: #1ebd57;
     --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --sombra: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
@@ -18,11 +20,22 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Efeito de deslizar suave ao clicar no menu */
+    scroll-behavior: smooth;
     font-family: var(--fonte-principal);
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
     line-height: 1.6;
+}
+
+body {
+    top: 0 !important;
+}
+
+/* Esconder elementos indesejados do Google Tradutor */
+.goog-te-banner-frame, 
+.goog-te-balloon-part,
+.skiptranslate {
+    display: none !important;
 }
 
 /* ==========================================================================
@@ -83,7 +96,7 @@ nav ul li a.btn-nav:hover {
 }
 
 /* ==========================================================================
-   3. HERO SECTION (Mais apelativa e luminosa)
+   3. HERO SECTION
    ========================================================================== */
 #hero {
     min-height: 75vh;
@@ -98,7 +111,6 @@ nav ul li a.btn-nav:hover {
     padding: 3rem 1rem;
 }
 
-/* Subsituição da película cinzenta por um gradiente profissional e luminoso */
 #hero::before {
     content: '';
     position: absolute;
@@ -121,7 +133,7 @@ nav ul li a.btn-nav:hover {
     padding: 2rem 1.5rem;
     max-width: 850px;
     background: rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(3px); /* Efeito moderno de vidro fosco */
+    backdrop-filter: blur(3px);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
@@ -131,7 +143,7 @@ nav ul li a.btn-nav:hover {
     margin-bottom: 1rem;
     font-weight: 700;
     letter-spacing: 0.5px;
-    text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
     line-height: 1.2;
 }
 
@@ -139,7 +151,7 @@ nav ul li a.btn-nav:hover {
     font-size: 1.3rem;
     margin-bottom: 2.2rem;
     font-weight: 300;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .btn-principal {
@@ -163,7 +175,7 @@ nav ul li a.btn-nav:hover {
 }
 
 /* ==========================================================================
-   4. SECÇÕES DE CONTEÚDO
+   4. SECÇÕES DE CONTEÚDO E ESTRUTURA GENERALIZADA
    ========================================================================== */
 section {
     padding: 5rem 2rem;
@@ -188,12 +200,9 @@ section h2::after {
     margin: 0.5rem auto 0 auto;
 }
 
-/* ==========================================================================
-   5. SECÇÃO DE REGRAS E AVISOS (Alargado para 1200px)
-   ========================================================================== */
 #regras,
 .seccao-regras {
-    max-width: 1200px !important; /* Corrigido: Agora ocupa a largura total igual às outras secções */
+    max-width: 1200px;
     width: 100%;
     margin: 2rem auto;
 }
@@ -213,7 +222,7 @@ section h2::after {
 }
 
 /* ==========================================================================
-   6. RESERVAS E BOTÃO WHATSAPP INTERNO
+   5. RESERVAS & WHATSAPP INTERNO
    ========================================================================== */
 #reservas {
     text-align: center;
@@ -231,8 +240,8 @@ section h2::after {
 
 .btn-whatsapp {
     display: inline-block;
-    background-color: #25D366 !important; /* Verde oficial */
-    color: var(--cor-branca) !important;
+    background-color: var(--cor-whatsapp);
+    color: var(--cor-branca);
     text-decoration: none;
     padding: 1rem 2.5rem;
     font-size: 1.2rem;
@@ -243,93 +252,12 @@ section h2::after {
 }
 
 .btn-whatsapp:hover {
-    background-color: #1ebd57 !important;
+    background-color: var(--cor-whatsapp-hover);
     transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   7. FOOTER (Minimizado e Compacto)
-   ========================================================================== */
-footer {
-    background-color: var(--cor-principal);
-    color: var(--cor-branca);
-    padding: 0.8rem 1.5rem; /* Altura drasticamente reduzida */
-    font-size: 0.85rem;
-}
-
-.conteudo-rodape {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.conteudo-rodape p {
-    margin: 0;
-    opacity: 0.9;
-}
-
-.redes-sociais {
-    display: flex;
-    gap: 0.8rem;
-}
-
-.link-rede {
-    color: var(--cor-branca);
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.25rem 0.6rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    font-size: 0.8rem;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.link-rede:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-color: var(--cor-branca);
-}
-
-@media (min-width: 768px) {
-    .conteudo-rodape {
-        flex-direction: row; /* Fica tudo na mesma linha em ecrãs grandes */
-        padding: 0.5rem 1rem;
-    }
-}
-
-/* ==========================================================================
-   8. RESPONSIVIDADE GERAL
-   ========================================================================== */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    nav ul {
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-    
-    section {
-        padding: 3rem 1.5rem;
-    }
-}
-
-/* ==========================================================================
-   9. ESTILIZAÇÃO DA GALERIA (CSS GRID)
+   6. GALERIA DE FOTOS (CSS GRID)
    ========================================================================== */
 .galeria-container {
     margin-bottom: 2rem;
@@ -349,25 +277,12 @@ footer {
     gap: 1.5rem;
 }
 
-@media (min-width: 992px) {
-    .grid-galeria .item-galeria.grande {
-        grid-column: span 2;
-        grid-row: span 2;
-    }
-}
-
 .item-galeria {
     position: relative;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: var(--sombra);
     height: 250px;
-}
-
-@media (min-width: 992px) {
-    .grid-galeria .item-galeria.grande {
-        height: 516px;
-    }
 }
 
 .item-galeria img {
@@ -394,8 +309,16 @@ footer {
     pointer-events: none;
 }
 
+@media (min-width: 992px) {
+    .grid-galeria .item-galeria.grande {
+        grid-column: span 2;
+        grid-row: span 2;
+        height: 516px;
+    }
+}
+
 /* ==========================================================================
-   10. COMODIDADES, LOCALIZAÇÃO E FORMULÁRIO
+   7. COMODIDADES, LOCALIZAÇÃO & FORMULÁRIO
    ========================================================================== */
 .grid-comodidades {
     display: grid;
@@ -455,6 +378,18 @@ footer {
 
 .btn-mapa:hover {
     background-color: var(--cor-secundaria);
+}
+
+.container-mapa {
+    margin-top: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    background-color: #ddd;
+}
+
+.container-mapa iframe {
+    display: block;
 }
 
 .container-formulario {
@@ -518,59 +453,7 @@ footer {
 }
 
 /* ==========================================================================
-   11. MAPA INTERATIVO E REDES SOCIAIS
-   ========================================================================== */
-.container-mapa {
-    margin-top: 2rem;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--sombra);
-    background-color: #ddd;
-}
-
-.container-mapa iframe {
-    display: block;
-}
-
-.conteudo-rodape {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 2rem 1rem;
-}
-
-.redes-sociais {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.link-rede {
-    color: var(--cor-branca);
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.link-rede:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: var(--cor-branca);
-}
-
-@media (min-width: 768px) {
-    .conteudo-rodape {
-        flex-direction: row;
-        justify-content: space-between;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-}
-
-/* ==========================================================================
-   12. CALENDÁRIO DE DISPONIBILIDADE
+   8. CALENDÁRIO DE DISPONIBILIDADE
    ========================================================================== */
 .container-calendario {
     max-width: 900px;
@@ -595,50 +478,17 @@ footer {
     margin-bottom: 1.5rem;
 }
 
-/* Ajuste Responsivo do Calendário no Telemóvel */
-@media (max-width: 768px) {
-    .container-calendario,
-    .calendario-container, 
-    .booking-calendar,
-    #calendar {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-left: 5px !important;
-        padding-right: 5px !important;
-        box-sizing: border-box !important;
-        overflow-x: hidden !important;
-    }
-}
-
 /* ==========================================================================
-   13. REGRAS DA CASA (GRELHA LARA E ESPAÇOSA - 1200px)
+   9. REGRAS DA CASA & GUIA
    ========================================================================== */
 .grelha-regras,
 .regras-container, 
 .regras-grid {
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important; /* Force 4 colunas em ecrãs de PC */
-    gap: 1.8rem !important;
-    margin-top: 2rem !important;
-    width: 100% !important;
-}
-
-@media (max-width: 992px) {
-    .grelha-regras,
-    .regras-container, 
-    .regras-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 1.5rem !important;
-    }
-}
-
-@media (max-width: 576px) {
-    .grelha-regras,
-    .regras-container, 
-    .regras-grid {
-        grid-template-columns: 1fr !important;
-        gap: 1.2rem !important;
-    }
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.8rem;
+    margin-top: 2rem;
+    width: 100%;
 }
 
 .cartao-regra {
@@ -716,7 +566,7 @@ footer {
 }
 
 /* ==========================================================================
-   14. SELETOR DE IDIOMA INTEGRADO NAS CORES DO SITE
+   10. SELETOR DE IDIOMA
    ========================================================================== */
 .item-tradutor {
     display: flex;
@@ -761,17 +611,8 @@ footer {
     font-size: 0.75rem;
 }
 
-body {
-    top: 0 !important;
-}
-.goog-te-banner-frame, 
-.goog-te-balloon-part,
-.skiptranslate {
-    display: none !important;
-}
-
 /* ==========================================================================
-   15. POPUP / LIGHTBOX DE IMAGENS
+   11. LIGHTBOX / MODAL DE IMAGENS
    ========================================================================== */
 .modal-imagem {
     display: none;
@@ -829,36 +670,134 @@ body {
 }
 
 /* ==========================================================================
-   16. BOTÃO FLUTUANTE DE CONTACTO (Verde WhatsApp Forçado)
+   12. BOTÃO FLUTUANTE DE CONTACTO (WhatsApp)
    ========================================================================== */
 a.whatsapp-float,
-.whatsapp-float,
-#whatsapp-float {
-    position: fixed !important;
-    bottom: 25px !important;
-    left: 25px !important;
-    background-color: #25D366 !important; /* Verde Oficial do WhatsApp */
-    background: #25D366 !important;
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    background-color: var(--cor-whatsapp);
     color: #ffffff !important;
-    width: 55px !important;
-    height: 55px !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3) !important;
-    z-index: 999999 !important;
-    text-decoration: none !important;
-}
-
-a.whatsapp-float *,
-.whatsapp-float * {
-    color: #ffffff !important; /* Garante que o ícone interno fica branco */
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 a.whatsapp-float:hover,
 .whatsapp-float:hover {
-    background-color: #1ebd57 !important;
-    background: #1ebd57 !important;
-    color: #ffffff !important;
+    background-color: var(--cor-whatsapp-hover);
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   13. FOOTER (RODAPÉ)
+   ========================================================================== */
+footer {
+    background-color: var(--cor-principal);
+    color: var(--cor-branca);
+    padding: 1rem 1.5rem;
+    font-size: 0.85rem;
+}
+
+.conteudo-rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.conteudo-rodape p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+.redes-sociais {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.link-rede {
+    color: var(--cor-branca);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.link-rede:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--cor-branca);
+}
+
+/* ==========================================================================
+   14. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+@media (min-width: 768px) {
+    .conteudo-rodape {
+        flex-direction: row;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .grelha-regras,
+    .regras-container, 
+    .regras-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    nav ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    section {
+        padding: 3rem 1.5rem;
+    }
+
+    .container-calendario {
+        width: 100%;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .grelha-regras,
+    .regras-container, 
+    .regras-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
 }
