@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casa da Tapada | Alojamento Local em Penafiel</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     
     <!-- FullCalendar CSS & JS -->
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
@@ -393,63 +393,65 @@
 
     <!-- SCRIPTS -->
     <script>
-    // FullCalendar Init
-    document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendario-google');
-
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
-            locale: 'pt',
-            headerToolbar: {
-                left: 'prev,next today',
-                center: 'title',
-                right: ''
-            },
-            buttonText: {
-                today: 'Hoje'
-            },
-            googleCalendarApiKey: 'AIzaSyCBZyed58maqMxBeCjwBLn9aYsB6i8N5eI',
-            events: {
-                googleCalendarId: '6e991fccb7a1c60f33087f0977b5d2e7b766f5b11c37dde6a4f92d86c13d8e86@group.calendar.google.com'
-            },
-            eventDidMount: function(info) {
-                info.el.innerText = 'Ocupado';
-            },
-            displayEventTime: false
-        });
-
-        calendar.render();
-    });
-
-    // Google Translate Init & Switcher
+    // Inicialização do Google Translate
     function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'pt',
-        includedLanguages: 'en,es,fr,de',
-        autoDisplay: false
-      }, 'google_translate_element');
+        new google.translate.TranslateElement({
+            pageLanguage: 'pt',
+            includedLanguages: 'en,es,fr,de',
+            autoDisplay: false
+        }, 'google_translate_element');
     }
 
+    // Função de Troca de Idioma Otimizada
     function mudarIdioma(lang, ev) {
-      if (lang === 'pt') {
-        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=" + window.location.hostname + "; path=/;";
-        window.location.reload();
-        return;
-      }
+        if (lang === 'pt') {
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=" + window.location.hostname + "; path=/;";
+            setTimeout(function() {
+                window.location.reload();
+            }, 100);
+            return;
+        }
 
-      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-      if (ev && ev.target) ev.target.classList.add('active');
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        if (ev && ev.target) ev.target.classList.add('active');
 
-      var select = document.querySelector('.goog-te-combo');
-      if (select) {
-        select.value = lang;
-        select.dispatchEvent(new Event('change'));
-      }
+        var select = document.querySelector('.goog-te-combo');
+        if (select) {
+            select.value = lang;
+            select.dispatchEvent(new Event('change'));
+        }
     }
 
-    // Lightbox / Modal
-    document.addEventListener("DOMContentLoaded", function () {
+    // Inicialização do FullCalendar e Modal de Galeria
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. FullCalendar
+        var calendarEl = document.getElementById('calendario-google');
+        if (calendarEl) {
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'pt',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: ''
+                },
+                buttonText: {
+                    today: 'Hoje'
+                },
+                googleCalendarApiKey: 'AIzaSyCBZyed58maqMxBeCjwBLn9aYsB6i8N5eI',
+                events: {
+                    googleCalendarId: '6e991fccb7a1c60f33087f0977b5d2e7b766f5b11c37dde6a4f92d86c13d8e86@group.calendar.google.com'
+                },
+                eventDidMount: function(info) {
+                    info.el.innerText = 'Ocupado';
+                },
+                displayEventTime: false
+            });
+            calendar.render();
+        }
+
+        // 2. Galeria Lightbox / Modal
         const imagens = document.querySelectorAll(".item-galeria img");
         const modal = document.getElementById("imagemModal");
         const imgModal = document.getElementById("imgAmpliada");
@@ -471,6 +473,7 @@
         });
     });
 
+    // Fechar Modal
     function fecharModal() {
         document.getElementById("imagemModal").style.display = "none";
     }
