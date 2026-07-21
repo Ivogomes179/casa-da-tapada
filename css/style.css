@@ -2,7 +2,7 @@
    1. PALETA DE CORES UNIFICADA (Tom Camel / Bege Amadeirado Unificado)
    ========================================================================== */
 :root {
-    /* Cor Principal Única (Tom das reservas ocupadas do calendário) */
+    /* Cor Principal Única */
     --cor-principal: #C8A97E;        /* Usada em botões, destaques, bordas, títulos e rodapé */
     --cor-principal-hover: #B5956A;  /* Tom um pouco mais escuro para o efeito hover */
     --cor-secundaria: #C8A97E;       /* Unificada para manter coerência visual */
@@ -466,7 +466,7 @@ section h2::after {
 }
 
 /* ==========================================================================
-   8. CALENDÁRIO DE DISPONIBILIDADE
+   8. CALENDÁRIO DE DISPONIBILIDADE (GERAL)
    ========================================================================== */
 .container-calendario {
     max-width: 900px;
@@ -711,11 +711,11 @@ a.whatsapp-float:hover,
 }
 
 /* ==========================================================================
-   13. FOOTER (RODAPÉ) - COM A MESMA COR PRINCIPAL
+   13. FOOTER (RODAPÉ)
    ========================================================================== */
 footer {
-    background-color: var(--cor-rodape); /* #C8A97E */
-    color: var(--cor-texto);             /* Texto escuro legível em fundo camel */
+    background-color: var(--cor-rodape);
+    color: var(--cor-texto);
     padding: 1.2rem 1.5rem;
     font-size: 0.85rem;
     border-top: 1px solid var(--cor-principal-hover);
@@ -781,66 +781,7 @@ footer .logo-turismo,
 }
 
 /* ==========================================================================
-   14. RESPONSIVIDADE (MEDIA QUERIES)
-   ========================================================================== */
-@media (min-width: 768px) {
-    .conteudo-rodape {
-        flex-direction: row;
-        padding: 0.5rem 1rem;
-    }
-}
-
-@media (max-width: 992px) {
-    .grelha-regras,
-    .regras-container, 
-    .regras-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    nav ul {
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-    
-    section {
-        padding: 3rem 1.5rem;
-    }
-
-    .container-calendario {
-        width: 100%;
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-}
-
-@media (max-width: 576px) {
-    .grelha-regras,
-    .regras-container, 
-    .regras-grid {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-    }
-}
-
-/* ==========================================================================
-   15. ESTILIZAÇÃO DO CALENDÁRIO FLATPICKR
+   14. ESTILIZAÇÃO FLATPICKR / FULLCALENDAR (DESKTOP)
    ========================================================================== */
 .flatpickr-calendar.inline {
     margin: 0 auto;
@@ -874,11 +815,9 @@ footer .logo-turismo,
     fill: var(--cor-texto);
 }
 
-/* ==========================================================================
-   16. ESTILIZAÇÃO FULLCALENDAR - CASA DA TAPADA
-   ========================================================================== */
+/* Base FullCalendar */
 .fc .fc-daygrid-day-frame {
-    min-height: 85px !important;
+    min-height: 85px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -901,7 +840,6 @@ footer .logo-turismo,
     color: var(--cor-texto) !important;
 }
 
-/* Botões com fundo suave baseado na cor principal */
 .fc .fc-button-primary {
     background-color: #F4EBE1 !important;
     border-color: #E2D4C3 !important;
@@ -921,16 +859,137 @@ footer .logo-turismo,
     background-color: var(--cor-fundo-suave) !important;
 }
 
-/* Blocos de Dias Ocupados / Reservas */
+/* Eventos / Reservas 'Ocupado' */
 .fc-event,
 .fc-daygrid-event {
-    background-color: var(--cor-principal) !important; /* #C8A97E */
+    background-color: var(--cor-principal) !important;
     border-color: var(--cor-principal-hover) !important;
-    color: var(--cor-texto-claro) !important;
+    color: #ffffff !important;
     text-align: center;
-    font-weight: 600;
+    font-weight: 700 !important;
     padding: 4px;
     border-radius: 4px;
     font-size: 0.8rem;
     margin-top: 2px;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   15. RESPONSIVIDADE E OTIMIZAÇÕES MOBILE (TELEMÓVEL)
+   ========================================================================== */
+@media (min-width: 768px) {
+    .conteudo-rodape {
+        flex-direction: row;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .grelha-regras,
+    .regras-container, 
+    .regras-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* --- NAV / MENU COMPACTO --- */
+    nav {
+        padding: 0.6rem 1rem !important;
+        gap: 0.5rem !important;
+        flex-direction: column;
+    }
+
+    nav .logo {
+        font-size: 1.3rem;
+    }
+
+    nav ul {
+        gap: 0.4rem 0.8rem !important;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    nav ul li a {
+        font-size: 0.85rem;
+    }
+
+    nav ul li a.btn-nav {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .item-tradutor {
+        margin-left: 0;
+        margin-top: 0.2rem;
+    }
+
+    .seletor-lingua {
+        padding: 2px 8px;
+        font-size: 0.75rem;
+    }
+
+    /* --- HERO --- */
+    .hero-content h1 {
+        font-size: 1.8rem !important;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem !important;
+        margin-bottom: 1.5rem;
+    }
+
+    section {
+        padding: 3rem 1rem;
+    }
+
+    /* --- CALENDÁRIO SLIM (FIT TOTAL EM MOBILE SEM SCROLL) --- */
+    .container-calendario {
+        width: 100%;
+        padding: 8px 4px !important;
+        margin: 1rem auto !important;
+    }
+
+    .fc .fc-daygrid-day-frame {
+        min-height: 48px !important; /* Altura reduzida para o mês caber sem scroll */
+    }
+
+    .fc .fc-toolbar {
+        margin-bottom: 0.5rem !important;
+    }
+
+    .fc .fc-toolbar-title {
+        font-size: 1.1rem !important;
+    }
+
+    .fc .fc-button {
+        padding: 0.2rem 0.5rem !important;
+        font-size: 0.8rem !important;
+    }
+
+    .fc .fc-col-header-cell {
+        padding: 2px 0 !important;
+    }
+
+    .fc .fc-col-header-cell-cushion {
+        font-size: 0.75rem !important;
+    }
+
+    .fc-event,
+    .fc-daygrid-event {
+        padding: 1px 2px !important;
+        margin-top: 1px !important;
+        font-size: 0.65rem !important;
+        line-height: 1.1 !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .grelha-regras,
+    .regras-container, 
+    .regras-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
 }
