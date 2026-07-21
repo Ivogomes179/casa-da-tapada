@@ -385,23 +385,29 @@
 
         <div class="container-formulario">
             <h3>Enviar Pedido de Informação</h3>
-            <form action="https://formspree.io/f/xqkvpgrw" method="POST" class="formulario-contacto">
+            <!-- FORMULÁRIO DE CONTACTO POR EMAIL -->
+            <form action="https://formspree.io/f/xykrjrnr" method="POST" class="formulario-contacto">
                 <div class="grupo-form">
                     <label for="nome">Nome Completo</label>
                     <input type="text" id="nome" name="nome" placeholder="O seu nome" required>
                 </div>
 
                 <div class="grupo-form">
-                    <label for="email">E-mail de Contacto</label>
-                    <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="O seu e-mail de contacto" required>
                 </div>
 
                 <div class="grupo-form">
-                    <label for="mensagem">Datas Pretendidas / Mensagem</label>
-                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Indique as datas pretendidas, número de hóspedes ou eventuais dúvidas..." required></textarea>
+                    <label for="telefone">Telefone / WhatsApp</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="Ex: +351 912 345 678">
                 </div>
 
-                <button type="submit" class="btn-enviar">Enviar Mensagem por E-mail</button>
+                <div class="grupo-form">
+                    <label for="mensagem">Mensagem / Datas Pretendidas</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Indique as datas pretendidas ou as suas dúvidas..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-enviar">Enviar Mensagem</button>
             </form>
         </div>
     </section>

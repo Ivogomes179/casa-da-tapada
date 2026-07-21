@@ -1,14 +1,26 @@
 /* ==========================================================================
-   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS (Estilo Tons Terra / Natureza)
+   1. PALETA DE CORES E VARIÁVEIS DO SITE (Tons Castanhos, Beges & Quentes)
    ========================================================================== */
 :root {
-    --cor-principal: #2c4a3e;   /* Verde floresta elegante */
-    --cor-secundaria: #8c7863;  /* Tom terra/madeira aconchegante */
-    --cor-fundo: #faf9f6;       /* Branco off-white suave */
-    --cor-texto: #333333;       /* Cinza escuro para melhor legibilidade */
-    --cor-branca: #ffffff;
+    /* Cores Principais - Castanhos e Beges Acolhedores */
+    --cor-principal: #8C6D53;        /* Castanho claro / Terracota suave para botões e destaques */
+    --cor-principal-hover: #73563E;  /* Castanho mais escuro para efeito hover */
+    --cor-secundaria: #8C7863;       /* Tom terra / madeira aconchegante */
+    
+    /* Cores de Fundo */
+    --cor-fundo: #FAF9F6;            /* Branco off-white suave para o corpo do site */
+    --cor-fundo-suave: #F9F6F0;      /* Bege muito claro / Creme para secções alternadas */
+    --cor-branca: #FFFFFF;           /* Branco puro para cartões e elementos em destaque */
+    --cor-rodape: #3E322A;           /* Castanho escuro acolhedor para o rodapé */
+
+    /* Cores de Texto */
+    --cor-texto: #4A4238;            /* Castanho / cinza quente para excelente legibilidade */
+    
+    /* Cor Oficial WhatsApp */
     --cor-whatsapp: #25D366;
-    --cor-whatsapp-hover: #1ebd57;
+    --cor-whatsapp-hover: #1EBD57;
+
+    /* Tipografia e Sombras */
     --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --sombra: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
