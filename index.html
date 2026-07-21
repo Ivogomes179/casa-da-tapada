@@ -359,87 +359,93 @@
         </div>
     </section>
 
-    <!-- SECÇÃO DE RESERVAS E CALENDÁRIO -->
-    <section id="reservas">
-        <h2>Disponibilidade e Reservas</h2>
-        <p>Consulte o calendário abaixo para verificar a disponibilidade da <strong>Casa da Tapada</strong>. Os dias assinalados correspondem a períodos já reservados.</p>
+<!-- SECÇÃO DE RESERVAS E CALENDÁRIO -->
+<!-- Estilos e Scripts do FullCalendar (Versão Consolidada e Estável) -->
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/pt.js"></script>
 
-        <!-- CONTAINER COM MÁSCARA PARA OCULTAR O BOTÃO DE RECUAR -->
-        <div style="position: relative; max-width: 800px; margin: 2rem auto; overflow: hidden; border-radius: 8px;">
-            <!-- Mascarilha para tapar a seta de recuar (Anterior) -->
-            <div style="position: absolute; top: 12px; left: 12px; width: 38px; height: 38px; background: #ffffff; z-index: 10; pointer-events: auto;"></div>
+<section id="reservas">
+    <h2>Disponibilidade e Reservas</h2>
+    <p>Consulte o calendário abaixo para verificar a disponibilidade da <strong>Casa da Tapada</strong>. Os dias passados encontram-se desativados.</p>
 
-            <iframe 
-                src="https://calendar.google.com/calendar/embed?src=6e991fccb7a1c60f33087f0977b5d2e7b766f5b11c37dde6a4f92d86c13d8e86%40group.calendar.google.com&ctz=Europe%2FLisbon&showTitle=0&showNav=1&showPrint=0&showCalendars=0&showTz=0" 
-                style="border:0;" 
-                width="100%" 
-                height="500" 
-                frameborder="0" 
-                scrolling="no">
-            </iframe>
-        </div>
+    <!-- CONTAINER DO CALENDÁRIO -->
+    <div class="container-calendario" style="max-width: 850px; margin: 2rem auto; padding: 20px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06);">
+        <div id="calendario-google"></div>
+    </div>
 
-        <p class="nota-calendario">Para reservar as suas datas ou esclarecer dúvidas, contacte-nos diretamente por WhatsApp ou preencha o formulário.</p>
+    <p class="nota-calendario">Para reservar as suas datas ou esclarecer dúvidas, contacte-nos diretamente por WhatsApp ou preencha o formulário.</p>
 
-        <div style="margin: 2rem 0;">
-            <a href="https://wa.me/351934392279" target="_blank" class="btn-whatsapp">
-                💬 Reservar por WhatsApp
-            </a>
-        </div>
+    <div style="margin: 2rem 0;">
+        <a href="https://wa.me/351934392279" target="_blank" class="btn-whatsapp">
+            💬 Reservar por WhatsApp
+        </a>
+    </div>
 
-        <div class="container-formulario">
-            <h3>Enviar Pedido de Informação</h3>
-            <!-- FORMULÁRIO DE CONTACTO POR EMAIL -->
-            <form action="https://formspree.io/f/xykrjrnr" method="POST" class="formulario-contacto">
-                <div class="grupo-form">
-                    <label for="nome">Nome Completo</label>
-                    <input type="text" id="nome" name="nome" placeholder="O seu nome" required>
-                </div>
+    <div class="container-formulario">
+        <h3>Enviar Pedido de Informação</h3>
+        <!-- FORMULÁRIO DE CONTACTO POR EMAIL -->
+        <form action="https://formspree.io/f/xykrjrnr" method="POST" class="formulario-contacto">
+            <div class="grupo-form">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" placeholder="O seu nome" required>
+            </div>
 
-                <div class="grupo-form">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="O seu e-mail de contacto" required>
-                </div>
+            <div class="grupo-form">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="O seu e-mail de contacto" required>
+            </div>
 
-                <div class="grupo-form">
-                    <label for="telefone">Telefone / WhatsApp</label>
-                    <input type="tel" id="telefone" name="telefone" placeholder="Ex: +351 912 345 678">
-                </div>
+            <div class="grupo-form">
+                <label for="telefone">Telefone / WhatsApp</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="Ex: +351 912 345 678">
+            </div>
 
-                <div class="grupo-form">
-                    <label for="mensagem">Mensagem / Datas Pretendidas</label>
-                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Indique as datas pretendidas ou as suas dúvidas..." required></textarea>
-                </div>
+            <div class="grupo-form">
+                <label for="mensagem">Mensagem / Datas Pretendidas</label>
+                <textarea id="mensagem" name="mensagem" rows="5" placeholder="Indique as datas pretendidas ou as suas dúvidas..." required></textarea>
+            </div>
 
-                <button type="submit" class="btn-enviar">Enviar Mensagem</button>
-            </form>
-        </div>
-    </section>
+            <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+        </form>
+    </div>
+</section>
 
-    <!-- Script de Configuração do Calendário Automático -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendario-google');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                plugins: [ 'dayGrid', 'iCalendar' ],
-                initialView: 'dayGridMonth',
-                locale: 'pt',
-                buttonText: {
-                    today: 'Hoje'
-                },
-                // BLOQUEIA O PASSADO: Não deixa recuar para meses/dias anteriores a hoje
-                validRange: {
-                    start: new Date().toISOString().split('T')[0]
-                },
-                // LIGAÇÃO DIRETA AO GOOGLE CALENDAR
-                events: {
-                    url: 'https://calendar.google.com/calendar/ical/6e991fccb7a1c60f33087f0977b5d2e7b766f5b11c37dde6a4f92d86c13d8e86%40group.calendar.google.com/public/basic.ics',
-                    format: 'ics'
-                }
-            });
-            calendar.render();
+<!-- Script de Inicialização do Calendário Sem Passado -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendario-google');
+        
+        // Data de hoje no formato YYYY-MM-DD
+        var hoje = new Date().toISOString().split('T')[0];
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale: 'pt',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: ''
+            },
+            buttonText: {
+                today: 'Hoje'
+            },
+            // REGRA CHAVE: Bloqueia qualquer data/mês anterior a HOJE
+            validRange: {
+                start: hoje
+            },
+            // LIGAÇÃO AO TEU GOOGLE CALENDAR PÚBLICO
+            events: {
+                url: 'https://calendar.google.com/calendar/ical/6e991fccb7a1c60f33087f0977b5d2e7b766f5b11c37dde6a4f92d86c13d8e86%40group.calendar.google.com/public/basic.ics',
+                format: 'ics'
+            },
+            eventColor: '#8C6D53', // Cor dos blocos de reserva
+            displayEventTime: false // Oculta as horas das reservas para mostrar só o bloco reservado
         });
-    </script>
+
+        calendar.render();
+    });
+</script>
 
     <<!-- RODAPÉ COMPACTO COM REDES SOCIAIS -->
     <footer>
