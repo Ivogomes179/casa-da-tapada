@@ -369,10 +369,24 @@
         <h2>Disponibilidade e Reservas</h2>
         <p>Consulte o calendário abaixo para verificar a disponibilidade da <strong>Casa da Tapada</strong>. Os dias passados encontram-se desativados.</p>
 
-        <!-- CALENDÁRIO INTERATIVO -->
+        <!-- CALENDÁRIO INTERATIVO PERSONALIZADO -->
         <div class="container-calendario" style="display: flex; justify-content: center; margin: 2rem 0;">
             <div id="calendario-reservas"></div>
         </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                flatpickr("#calendario-reservas", {
+                    inline: true,
+                    locale: "pt",
+                    minDate: "today",
+                    showMonths: 2, // Mostra 2 meses lado a lado em ecrãs maiores
+                    disable: [
+                        // Datas ocupadas no futuro (Exemplo: "2026-08-10", "2026-08-11")
+                    ]
+                });
+            });
+        </script>
 
         <p class="nota-calendario">Para reservar as suas datas ou esclarecer dúvidas, contacte-nos diretamente por WhatsApp ou preencha o formulário.</p>
 

@@ -850,3 +850,43 @@ footer .logo-turismo {
         gap: 1.2rem;
     }
 }
+
+/* ==========================================================================
+   ESTILIZAÇÃO DO CALENDÁRIO FLATPICKR (Tons Castanhos / Casa da Tapada)
+   ========================================================================== */
+
+/* Centrar o container do calendário */
+.flatpickr-calendar.inline {
+    margin: 0 auto;
+    border: 1px solid #E5DED6;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background-color: var(--cor-branca, #ffffff);
+}
+
+/* Alterar a cor de destaque do dia atual / selecionado para o castanho da casa */
+.flatpickr-day.today {
+    border-color: var(--cor-principal, #8C6D53) !important;
+}
+
+.flatpickr-day.selected, 
+.flatpickr-day.startRange, 
+.flatpickr-day.endRange, 
+.flatpickr-day.selected:hover {
+    background: var(--cor-principal, #8C6D53) !important;
+    border-color: var(--cor-principal, #8C6D53) !important;
+    color: #ffffff !important;
+}
+
+/* Estilo para dias desativados / passados */
+.flatpickr-day.flatpickr-disabled, 
+.flatpickr-day.flatpickr-disabled:hover {
+    color: #d3cbd2 !important;
+    opacity: 0.4;
+}
+
+/* Cabeçalho dos meses */
+.flatpickr-months .flatpickr-month {
+    color: var(--cor-texto, #4A4238);
+    fill: var(--cor-texto, #4A4238);
+}
