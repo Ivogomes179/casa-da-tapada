@@ -360,25 +360,24 @@
     </section>
 
     <!-- SECÇÃO DE RESERVAS E CALENDÁRIO -->
+    <!-- Scripts do Flatpickr para o calendário interativo -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
+
     <section id="reservas">
         <h2>Disponibilidade e Reservas</h2>
-        <p>Consulte o calendário abaixo para verificar a disponibilidade da <strong>Casa da Tapada</strong>. Os dias assinalados correspondem a períodos já reservados.</p>
+        <p>Consulte o calendário abaixo para verificar a disponibilidade da <strong>Casa da Tapada</strong>. Os dias passados encontram-se desativados.</p>
 
-        <div class="container-calendario">
-            <iframe 
-                src="https://calendar.google.com/calendar/embed?src=6e991fccb7a1c60f33087f0977b5d2e7b766f5b11c37dde6a4f92d86c13d8e86%40group.calendar.google.com&ctz=Europe%2FLisbon&showTitle=0&showNav=1&showPrint=0&showCalendars=0&showTz=0" 
-                style="border:0" 
-                width="100%" 
-                height="500" 
-                frameborder="0" 
-                scrolling="no">
-            </iframe>
+        <!-- CALENDÁRIO INTERATIVO -->
+        <div class="container-calendario" style="display: flex; justify-content: center; margin: 2rem 0;">
+            <div id="calendario-reservas"></div>
         </div>
 
         <p class="nota-calendario">Para reservar as suas datas ou esclarecer dúvidas, contacte-nos diretamente por WhatsApp ou preencha o formulário.</p>
 
         <div style="margin: 2rem 0;">
-            <a href="https://wa.me/351912345678" target="_blank" class="btn-whatsapp">
+            <a href="https://wa.me/351934392279" target="_blank" class="btn-whatsapp">
                 💬 Reservar por WhatsApp
             </a>
         </div>
@@ -411,6 +410,22 @@
             </form>
         </div>
     </section>
+
+    <!-- Script de Configuração do Calendário -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            flatpickr("#calendario-reservas", {
+                inline: true,          // Mantém o calendário aberto na página
+                locale: "pt",          // Em Português
+                minDate: "today",      // Bloqueia e esconde a navegação para dias/meses passados
+                showMonths: 1,         // Podes mudar para 2 se quiseres ver 2 meses lado a lado
+                disable: [
+                    // Exemplo de como bloquear datas ocupadas no futuro (Formato: "AAAA-MM-DD")
+                    // "2026-08-10", "2026-08-11"
+                ]
+            });
+        });
+    </script>
 
     <<!-- RODAPÉ COMPACTO COM REDES SOCIAIS -->
     <footer>
@@ -510,7 +525,7 @@
     </script>
 
     <!-- Botão Flutuante do WhatsApp -->
-    <a href="https://wa.me/351912345678?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Casa%20da%20Tapada%20e%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es." 
+    <a href="https://wa.me/351934392279?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Casa%20da%20Tapada%20e%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es." 
        class="whatsapp-float" 
        target="_blank" 
        rel="noopener noreferrer" 
