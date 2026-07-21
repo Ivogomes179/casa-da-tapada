@@ -360,33 +360,21 @@
     </section>
 
     <!-- SECÇÃO DE RESERVAS E CALENDÁRIO -->
-    <!-- Scripts do Flatpickr para o calendário interativo -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
-
     <section id="reservas">
         <h2>Disponibilidade e Reservas</h2>
-        <p>Consulte o calendário abaixo para verificar a disponibilidade da <strong>Casa da Tapada</strong>. Os dias passados encontram-se desativados.</p>
+        <p>Consulte o calendário abaixo para verificar a disponibilidade da <strong>Casa da Tapada</strong>. Os dias assinalados correspondem a períodos já reservados.</p>
 
-        <!-- CALENDÁRIO INTERATIVO PERSONALIZADO -->
-        <div class="container-calendario" style="display: flex; justify-content: center; margin: 2rem 0;">
-            <div id="calendario-reservas"></div>
+        <!-- CONTAINER DO GOOGLE CALENDAR (SEM NAVEGAÇÃO PASSADA) -->
+        <div class="container-calendario" style="max-width: 800px; margin: 2rem auto;">
+            <iframe 
+                src="https://calendar.google.com/calendar/embed?src=6e991fccb7a1c60f33087f0977b5d2e7b766f5b11c37dde6a4f92d86c13d8e86%40group.calendar.google.com&ctz=Europe%2FLisbon&showTitle=0&showNav=0&showPrint=0&showCalendars=0&showTz=0" 
+                style="border:0; border-radius: 8px;" 
+                width="100%" 
+                height="500" 
+                frameborder="0" 
+                scrolling="no">
+            </iframe>
         </div>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                flatpickr("#calendario-reservas", {
-                    inline: true,
-                    locale: "pt",
-                    minDate: "today",
-                    showMonths: 2, // Mostra 2 meses lado a lado em ecrãs maiores
-                    disable: [
-                        // Datas ocupadas no futuro (Exemplo: "2026-08-10", "2026-08-11")
-                    ]
-                });
-            });
-        </script>
 
         <p class="nota-calendario">Para reservar as suas datas ou esclarecer dúvidas, contacte-nos diretamente por WhatsApp ou preencha o formulário.</p>
 
