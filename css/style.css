@@ -586,12 +586,29 @@ nav ul li a:hover::after {
 
 .container-calendario {
     background: var(--cor-branca);
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 12px;
     box-shadow: var(--sombra-suave);
     margin: 1.5rem auto;
     max-width: 950px;
     border: 1px solid #eee;
+}
+
+/* Forçar o iframe do Google a ter espaço vertical suficiente */
+.container-calendario iframe {
+    width: 100% !important;
+    height: 600px !important; /* Dá altura para o mês inteiro sem scroll */
+    border: 0 !important;
+}
+
+@media (max-width: 768px) {
+    .container-calendario {
+        padding: 0.3rem !important;
+    }
+    
+    .container-calendario iframe {
+        height: 500px !important; /* Ajuste para ecrã de telemóvel */
+    }
 }
 
 /* Redução da altura no Desktop */
