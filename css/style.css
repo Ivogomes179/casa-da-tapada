@@ -1,20 +1,21 @@
 /* ==========================================================================
-   1. PALETA DE CORES E VARIÁVEIS DO SITE (Tons Castanhos, Beges & Quentes)
+   1. PALETA DE CORES UNIFICADA (Tom Camel / Bege Amadeirado Unificado)
    ========================================================================== */
 :root {
-    /* Cores Principais - Castanhos e Beges Acolhedores */
-    --cor-principal: #8C6D53;        /* Castanho claro / Terracota suave para botões e destaques */
-    --cor-principal-hover: #73563E;  /* Castanho mais escuro para efeito hover */
-    --cor-secundaria: #8C7863;       /* Tom terra / madeira aconchegante */
+    /* Cor Principal Única (Tom das reservas ocupadas do calendário) */
+    --cor-principal: #C8A97E;        /* Usada em botões, destaques, bordas, títulos e rodapé */
+    --cor-principal-hover: #B5956A;  /* Tom um pouco mais escuro para o efeito hover */
+    --cor-secundaria: #C8A97E;       /* Unificada para manter coerência visual */
     
     /* Cores de Fundo */
     --cor-fundo: #FAF9F6;            /* Branco off-white suave para o corpo do site */
     --cor-fundo-suave: #F9F6F0;      /* Bege muito claro / Creme para secções alternadas */
-    --cor-branca: #FFFFFF;           /* Branco puro para cartões e elementos em destaque */
-    --cor-rodape: #3E322A;           /* Castanho escuro acolhedor para o rodapé */
+    --cor-branca: #FFFFFF;           /* Branco puro para cartões */
+    --cor-rodape: #C8A97E;           /* Rodapé exatamente na mesma cor dos botões e calendário */
 
     /* Cores de Texto */
-    --cor-texto: #4A4238;            /* Castanho / cinza quente para excelente legibilidade */
+    --cor-texto: #4A4238;            /* Castanho escuro / quente para excelente leitura */
+    --cor-texto-claro: #FFFFFF;      /* Texto branco sobre elementos na cor principal */
     
     /* Cor Oficial WhatsApp */
     --cor-whatsapp: #25D366;
@@ -97,14 +98,14 @@ nav ul li a:hover {
 
 nav ul li a.btn-nav {
     background-color: var(--cor-principal);
-    color: var(--cor-branca);
+    color: var(--cor-texto-claro);
     padding: 0.6rem 1.2rem;
     border-radius: 4px;
     transition: background-color 0.3s;
 }
 
 nav ul li a.btn-nav:hover {
-    background-color: var(--cor-secundaria);
+    background-color: var(--cor-principal-hover);
 }
 
 /* ==========================================================================
@@ -133,7 +134,7 @@ nav ul li a.btn-nav:hover {
     background: linear-gradient(
         180deg, 
         rgba(0, 0, 0, 0.25) 0%, 
-        rgba(44, 74, 62, 0.45) 100%
+        rgba(74, 66, 56, 0.45) 100%
     ); 
     z-index: 1;
 }
@@ -168,26 +169,26 @@ nav ul li a.btn-nav:hover {
 
 .btn-principal {
     display: inline-block;
-    background-color: var(--cor-secundaria);
-    color: var(--cor-branca);
+    background-color: var(--cor-principal);
+    color: var(--cor-texto-claro);
     text-decoration: none;
     padding: 1rem 2.2rem;
     font-size: 1.1rem;
     font-weight: bold;
     border-radius: 6px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
 }
 
 .btn-principal:hover {
-    background-color: #766350;
+    background-color: var(--cor-principal-hover);
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* ==========================================================================
-   4. SECÇÕES DE CONTEÚDO E ESTRUTURA GENERALIZADA
+   4. SECÇÕES DE CONTEÚDO E ESTRUTURA
    ========================================================================== */
 section {
     padding: 5rem 2rem;
@@ -208,7 +209,7 @@ section h2::after {
     display: block;
     width: 60px;
     height: 3px;
-    background-color: var(--cor-secundaria);
+    background-color: var(--cor-principal);
     margin: 0.5rem auto 0 auto;
 }
 
@@ -365,7 +366,7 @@ section h2::after {
 }
 
 .fundo-suave {
-    background-color: #f2f0eb;
+    background-color: var(--cor-fundo-suave);
     border-radius: 8px;
     padding: 3rem 2rem;
 }
@@ -380,7 +381,7 @@ section h2::after {
     display: inline-block;
     margin-top: 1.5rem;
     background-color: var(--cor-principal);
-    color: var(--cor-branca);
+    color: var(--cor-texto-claro);
     text-decoration: none;
     padding: 0.8rem 1.5rem;
     border-radius: 4px;
@@ -389,7 +390,7 @@ section h2::after {
 }
 
 .btn-mapa:hover {
-    background-color: var(--cor-secundaria);
+    background-color: var(--cor-principal-hover);
 }
 
 .container-mapa {
@@ -450,7 +451,7 @@ section h2::after {
 .btn-enviar {
     width: 100%;
     background-color: var(--cor-principal);
-    color: var(--cor-branca);
+    color: var(--cor-texto-claro);
     border: none;
     padding: 1rem;
     font-size: 1rem;
@@ -461,7 +462,7 @@ section h2::after {
 }
 
 .btn-enviar:hover {
-    background-color: var(--cor-secundaria);
+    background-color: var(--cor-principal-hover);
 }
 
 /* ==========================================================================
@@ -471,8 +472,8 @@ section h2::after {
     max-width: 900px;
     margin: 2rem auto;
     background-color: var(--cor-branca);
-    border-radius: 8px;
-    padding: 1rem;
+    border-radius: 12px;
+    padding: 20px;
     box-shadow: var(--sombra);
     border: 1px solid #e2e0d8;
     overflow: hidden;
@@ -561,7 +562,7 @@ section h2::after {
     text-transform: uppercase;
     font-weight: bold;
     color: var(--cor-principal);
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(200, 169, 126, 0.15);
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
     margin-bottom: 0.8rem;
@@ -612,10 +613,10 @@ section h2::after {
 }
 
 .lang-btn.active {
-    color: var(--cor-branca);
+    color: var(--cor-texto-claro);
     font-weight: bold;
     background-color: var(--cor-principal);
-    box-shadow: 0 0 8px rgba(44, 74, 62, 0.4);
+    box-shadow: 0 0 8px rgba(200, 169, 126, 0.4);
 }
 
 .separador {
@@ -673,7 +674,7 @@ section h2::after {
 }
 
 .fechar-modal:hover {
-    color: var(--cor-secundaria);
+    color: var(--cor-principal);
 }
 
 @keyframes fadeIn {
@@ -710,13 +711,14 @@ a.whatsapp-float:hover,
 }
 
 /* ==========================================================================
-   13. FOOTER (RODAPÉ)
+   13. FOOTER (RODAPÉ) - COM A MESMA COR PRINCIPAL
    ========================================================================== */
 footer {
-    background-color: var(--cor-principal);
-    color: var(--cor-branca);
-    padding: 1rem 1.5rem;
+    background-color: var(--cor-rodape); /* #C8A97E */
+    color: var(--cor-texto);             /* Texto escuro legível em fundo camel */
+    padding: 1.2rem 1.5rem;
     font-size: 0.85rem;
+    border-top: 1px solid var(--cor-principal-hover);
 }
 
 .conteudo-rodape {
@@ -731,7 +733,7 @@ footer {
 
 .conteudo-rodape p {
     margin: 0;
-    opacity: 0.9;
+    font-weight: 500;
 }
 
 .redes-sociais {
@@ -740,56 +742,42 @@ footer {
 }
 
 .link-rede {
-    color: var(--cor-branca);
+    color: var(--cor-texto);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     padding: 0.3rem 0.8rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(74, 66, 56, 0.3);
     border-radius: 4px;
     font-size: 0.8rem;
-    transition: background-color 0.3s, border-color 0.3s;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
 }
 
 .link-rede:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-color: var(--cor-branca);
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: var(--cor-texto);
 }
 
-/* ==========================================================================
-   AJUSTE DE VISIBILIDADE DOS LOGOS (AL / TURISMO DE PORTUGAL)
-   ========================================================================== */
+/* Logos no rodapé */
 .logo-al,
 .logo-turismo,
 .parceiros-logos img {
-    height: auto;
-    max-height: 45px; /* Define uma altura máxima uniforme */
-    width: auto;
-    object-fit: contain;
-    display: inline-block;
-    vertical-align: middle;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15)); /* Garante destaque */
-}
-
-/* Caso os logos estejam dentro do rodapé escuro e sejam escuros */
-footer .logo-al,
-footer .logo-turismo {
-    background-color: rgba(255, 255, 255, 0.9); /* Adiciona fundo branco suave se o logo for escuro */
-    padding: 4px 8px;
-    border-radius: 4px;
-}
-
-/* Estilo para os logótipos do Rodapé */
-.logo-parceiro {
     height: auto;
     max-height: 45px;
     width: auto;
     object-fit: contain;
     display: inline-block;
     vertical-align: middle;
-    background-color: rgba(255, 255, 255, 0.95); /* Garante visibilidade se o fundo do footer for escuro */
+}
+
+footer .logo-al,
+footer .logo-turismo,
+.logo-parceiro {
+    background-color: rgba(255, 255, 255, 0.95);
     padding: 4px 8px;
     border-radius: 4px;
     margin: 0 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 /* ==========================================================================
@@ -852,41 +840,97 @@ footer .logo-turismo {
 }
 
 /* ==========================================================================
-   ESTILIZAÇÃO DO CALENDÁRIO FLATPICKR (Tons Castanhos / Casa da Tapada)
+   15. ESTILIZAÇÃO DO CALENDÁRIO FLATPICKR
    ========================================================================== */
-
-/* Centrar o container do calendário */
 .flatpickr-calendar.inline {
     margin: 0 auto;
     border: 1px solid #E5DED6;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    background-color: var(--cor-branca, #ffffff);
+    background-color: var(--cor-branca);
 }
 
-/* Alterar a cor de destaque do dia atual / selecionado para o castanho da casa */
 .flatpickr-day.today {
-    border-color: var(--cor-principal, #8C6D53) !important;
+    border-color: var(--cor-principal) !important;
 }
 
 .flatpickr-day.selected, 
 .flatpickr-day.startRange, 
 .flatpickr-day.endRange, 
 .flatpickr-day.selected:hover {
-    background: var(--cor-principal, #8C6D53) !important;
-    border-color: var(--cor-principal, #8C6D53) !important;
-    color: #ffffff !important;
+    background: var(--cor-principal) !important;
+    border-color: var(--cor-principal) !important;
+    color: var(--cor-texto-claro) !important;
 }
 
-/* Estilo para dias desativados / passados */
 .flatpickr-day.flatpickr-disabled, 
 .flatpickr-day.flatpickr-disabled:hover {
     color: #d3cbd2 !important;
     opacity: 0.4;
 }
 
-/* Cabeçalho dos meses */
 .flatpickr-months .flatpickr-month {
-    color: var(--cor-texto, #4A4238);
-    fill: var(--cor-texto, #4A4238);
+    color: var(--cor-texto);
+    fill: var(--cor-texto);
+}
+
+/* ==========================================================================
+   16. ESTILIZAÇÃO FULLCALENDAR - CASA DA TAPADA
+   ========================================================================== */
+.fc .fc-daygrid-day-frame {
+    min-height: 85px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.fc-day-past {
+    background-color: #f4f4f4 !important;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.fc .fc-toolbar-title {
+    color: var(--cor-texto) !important;
+    font-size: 1.35rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.fc .fc-col-header-cell-cushion {
+    color: var(--cor-texto) !important;
+}
+
+/* Botões com fundo suave baseado na cor principal */
+.fc .fc-button-primary {
+    background-color: #F4EBE1 !important;
+    border-color: #E2D4C3 !important;
+    color: var(--cor-texto) !important;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.fc .fc-button-primary:hover,
+.fc .fc-button-primary:active {
+    background-color: var(--cor-principal) !important;
+    border-color: var(--cor-principal-hover) !important;
+    color: var(--cor-texto-claro) !important;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+    background-color: var(--cor-fundo-suave) !important;
+}
+
+/* Blocos de Dias Ocupados / Reservas */
+.fc-event,
+.fc-daygrid-event {
+    background-color: var(--cor-principal) !important; /* #C8A97E */
+    border-color: var(--cor-principal-hover) !important;
+    color: var(--cor-texto-claro) !important;
+    text-align: center;
+    font-weight: 600;
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-top: 2px;
 }

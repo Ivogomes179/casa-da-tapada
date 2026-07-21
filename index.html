@@ -359,18 +359,19 @@
         </div>
     </section>
 
-<!-- SECÇÃO DE RESERVAS E CALENDÁRIO -->
-<!-- Estilos e Scripts do FullCalendar (Versão Consolidada e Estável) -->
+    <!-- SECÇÃO DE RESERVAS E CALENDÁRIO -->
 <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/pt.js"></script>
+<!-- PLUGIN OFICIAL DO GOOGLE CALENDAR -->
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@5.11.3/main.global.min.js"></script>
 
 <section id="reservas">
     <h2>Disponibilidade e Reservas</h2>
-    <p>Consulte o calendário abaixo para verificar a disponibilidade da <strong>Casa da Tapada</strong>. Os dias passados encontram-se desativados.</p>
+    <p>Consulte o calendário abaixo para verificar a disponibilidade da <strong>Casa da Tapada</strong>. Os dias assinalados correspondem a períodos já reservados.</p>
 
     <!-- CONTAINER DO CALENDÁRIO -->
-    <div class="container-calendario" style="max-width: 850px; margin: 2rem auto; padding: 20px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06);">
+    <div class="container-calendario">
         <div id="calendario-google"></div>
     </div>
 
@@ -384,7 +385,6 @@
 
     <div class="container-formulario">
         <h3>Enviar Pedido de Informação</h3>
-        <!-- FORMULÁRIO DE CONTACTO POR EMAIL -->
         <form action="https://formspree.io/f/xykrjrnr" method="POST" class="formulario-contacto">
             <div class="grupo-form">
                 <label for="nome">Nome Completo</label>
@@ -411,13 +411,10 @@
     </div>
 </section>
 
-<!-- Script de Inicialização do Calendário Sem Passado -->
+<!-- Script de Inicialização Direta via Google Calendar API -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendario-google');
-        
-        // Data de hoje no formato YYYY-MM-DD
-        var hoje = new Date().toISOString().split('T')[0];
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
@@ -430,17 +427,20 @@
             buttonText: {
                 today: 'Hoje'
             },
-            // REGRA CHAVE: Bloqueia qualquer data/mês anterior a HOJE
-            validRange: {
-                start: hoje
-            },
-            // LIGAÇÃO AO TEU GOOGLE CALENDAR PÚBLICO
+            
+            // ⚠️ Chave de API da Google Cloud
+            googleCalendarApiKey: 'AIzaSyCBZyed58maqMxBeCjwBLn9aYsB6i8N5eI',
+
+            // ID do teu calendário de Reservas
             events: {
-                url: 'https://calendar.google.com/calendar/ical/6e991fccb7a1c60f33087f0977b5d2e7b766f5b11c37dde6a4f92d86c13d8e86%40group.calendar.google.com/public/basic.ics',
-                format: 'ics'
+                googleCalendarId: '6e991fccb7a1c60f33087f0977b5d2e7b766f5b11c37dde6a4f92d86c13d8e86@group.calendar.google.com'
             },
-            eventColor: '#8C6D53', // Cor dos blocos de reserva
-            displayEventTime: false // Oculta as horas das reservas para mostrar só o bloco reservado
+
+            // Oculta títulos privados e mostra "Ocupado"
+            eventDidMount: function(info) {
+                info.el.innerText = 'Ocupado';
+            },
+            displayEventTime: false
         });
 
         calendar.render();
