@@ -83,10 +83,10 @@ nav ul li a.btn-nav:hover {
 }
 
 /* ==========================================================================
-   3. HERO SECTION (Imagem de Destaque da Piscina)
+   3. HERO SECTION (Mais apelativa e luminosa)
    ========================================================================== */
 #hero {
-    height: 80vh; /* Ocupa 80% da altura do ecrã */
+    min-height: 75vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -95,9 +95,10 @@ nav ul li a.btn-nav:hover {
     justify-content: center;
     text-align: center;
     position: relative;
+    padding: 3rem 1rem;
 }
 
-/* Película escura sobre a foto para o texto ficar perfeitamente legível */
+/* Subsituição da película cinzenta por um gradiente profissional e luminoso */
 #hero::before {
     content: '';
     position: absolute;
@@ -105,7 +106,11 @@ nav ul li a.btn-nav:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4); 
+    background: linear-gradient(
+        180deg, 
+        rgba(0, 0, 0, 0.25) 0%, 
+        rgba(44, 74, 62, 0.45) 100%
+    ); 
     z-index: 1;
 }
 
@@ -113,21 +118,28 @@ nav ul li a.btn-nav:hover {
     position: relative;
     z-index: 2;
     color: var(--cor-branca);
-    padding: 0 1rem;
-    max-width: 800px;
+    padding: 2rem 1.5rem;
+    max-width: 850px;
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(3px); /* Efeito moderno de vidro fosco */
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .hero-content h1 {
-    font-size: 3rem;
+    font-size: 3.2rem;
     margin-bottom: 1rem;
     font-weight: 700;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    letter-spacing: 0.5px;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    line-height: 1.2;
 }
 
 .hero-content p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    margin-bottom: 2.2rem;
     font-weight: 300;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .btn-principal {
@@ -135,17 +147,19 @@ nav ul li a.btn-nav:hover {
     background-color: var(--cor-secundaria);
     color: var(--cor-branca);
     text-decoration: none;
-    padding: 1rem 2rem;
+    padding: 1rem 2.2rem;
     font-size: 1.1rem;
     font-weight: bold;
-    border-radius: 4px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: transform 0.2s, background-color 0.3s;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
 }
 
 .btn-principal:hover {
     background-color: #766350;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }
 
 /* ==========================================================================
@@ -234,14 +248,56 @@ section h2::after {
 }
 
 /* ==========================================================================
-   7. FOOTER
+   7. FOOTER (Minimizado e Compacto)
    ========================================================================== */
 footer {
     background-color: var(--cor-principal);
     color: var(--cor-branca);
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.9rem;
+    padding: 0.8rem 1.5rem; /* Altura drasticamente reduzida */
+    font-size: 0.85rem;
+}
+
+.conteudo-rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.conteudo-rodape p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+.redes-sociais {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.link-rede {
+    color: var(--cor-branca);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.link-rede:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--cor-branca);
+}
+
+@media (min-width: 768px) {
+    .conteudo-rodape {
+        flex-direction: row; /* Fica tudo na mesma linha em ecrãs grandes */
+        padding: 0.5rem 1rem;
+    }
 }
 
 /* ==========================================================================
