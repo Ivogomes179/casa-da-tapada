@@ -784,7 +784,7 @@ body {
 }
 
 /* ==========================================================================
-   11. CALENDÁRIO DE DISPONIBILIDADE (COMPACTO EM DESKTOP E ADAPTADO A MOBILE)
+   11. CALENDÁRIO DE DISPONIBILIDADE (GOOGLE CALENDAR RESPONSIVO)
    ========================================================================== */
 
 .container-calendario {
@@ -795,79 +795,14 @@ body {
     margin: 1.5rem auto;
     max-width: 950px;
     border: 1px solid #eee;
+    overflow: hidden;
 }
 
-/* Forçar o iframe do Google a ter espaço vertical suficiente */
+/* Forçar o iframe do Google a ter espaço vertical suficiente em Desktop */
 .container-calendario iframe {
     width: 100% !important;
-    height: 600px !important; /* Dá altura para o mês inteiro sem scroll */
+    height: 600px !important;
     border: 0 !important;
-}
-
-@media (max-width: 768px) {
-    .container-calendario {
-        padding: 0.3rem !important;
-    }
-    
-    .container-calendario iframe {
-        height: 500px !important; /* Ajuste para ecrã de telemóvel */
-    }
-}
-
-/* Redução da altura no Desktop */
-.fc .fc-daygrid-day-frame {
-    min-height: 52px !important;
-}
-
-.fc .fc-scroller {
-    overflow: hidden !important;
-}
-
-.fc-daygrid-body {
-    width: 100% !important;
-}
-
-/* Estilização das barras de "Ocupado" */
-.fc-event-busy, .fc-event {
-    background-color: var(--cor-erro) !important;
-    border-color: var(--cor-erro) !important;
-    color: white !important;
-    text-align: center;
-    font-weight: bold;
-    border-radius: 3px;
-    font-size: 0.72rem !important;
-    padding: 2px 4px !important;
-    margin-top: 2px !important;
-    cursor: default !important;      /* Remove o cursor de link/mãozinha ao passar por cima */
-    pointer-events: none !important; /* BLOQUEIA TOTALMENTE O CLIQUE no evento via CSS */
-}
-
-.fc-toolbar {
-    margin-bottom: 1rem !important;
-}
-
-.fc-toolbar-title {
-    font-size: 1.2rem !important;
-    color: var(--cor-principal);
-    font-weight: 700;
-}
-
-.fc-button-primary {
-    background-color: var(--cor-principal) !important;
-    border-color: var(--cor-principal) !important;
-    transition: var(--transicao);
-    padding: 0.3rem 0.7rem !important;
-    font-size: 0.85rem !important;
-}
-
-.fc-button-primary:hover {
-    background-color: var(--cor-secundaria) !important;
-    border-color: var(--cor-secundaria) !important;
-}
-
-.fc-col-header-cell {
-    padding: 4px 0 !important;
-    font-size: 0.85rem;
 }
 
 .nota-calendario {
@@ -877,8 +812,21 @@ body {
     margin-top: 0.8rem;
 }
 
+/* --------------------------------------------------------------------------
+   AJUSTES PARA MOBILE (<= 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .container-calendario {
+        padding: 0.3rem !important;
+    }
+    
+    .container-calendario iframe {
+        height: 500px !important; /* Altura ideal sem esmagar no telemóvel */
+    }
+}
+
 /* ==========================================================================
-   AJUSTES RESPONSIVOS PARA TELEMÓVEIS (GERAL, HERO & CALENDÁRIO)
+   12. AJUSTES RESPONSIVOS PARA TELEMÓVEIS (GERAL, HERO & CALENDÁRIO)
    ========================================================================== */
 @media (max-width: 768px) {
 
@@ -905,7 +853,7 @@ body {
     header h1 {
         margin: 0 auto !important;
         text-align: center !important;
-        font-size: 1.75rem !important;
+        font-size: 1.25rem !important;
     }
 
 
@@ -991,7 +939,7 @@ body {
 }
 
 /* ==========================================================================
-   12. FORMULÁRIO DE RESERVA E CONTATO
+   13. FORMULÁRIO DE RESERVA E CONTATO
    ========================================================================== */
 
 #reservas {
@@ -1116,7 +1064,7 @@ body {
 }
 
 /* ==========================================================================
-   13. JANELA MODAL / LIGHTBOX DE IMAGENS
+   14. JANELA MODAL / LIGHTBOX DE IMAGENS
    ========================================================================== */
 
 .modal-imagem {
@@ -1173,7 +1121,7 @@ body {
 }
 
 /* ==========================================================================
-   14. BOTÃO FLUTUANTE DO WHATSAPP
+   15. BOTÃO FLUTUANTE DO WHATSAPP
    ========================================================================== */
 
 .whatsapp-float {
@@ -1202,7 +1150,7 @@ body {
 }
 
 /* ==========================================================================
-   15. RODAPÉ (FOOTER)
+   16. RODAPÉ (FOOTER)
    ========================================================================== */
 
 footer {
@@ -1247,7 +1195,7 @@ footer {
 }
 
 /* ==========================================================================
-   16. ADAPTAÇÕES RESPONSIVAS (MEDIA QUERIES)
+   17. ADAPTAÇÕES RESPONSIVAS (MEDIA QUERIES)
    ========================================================================== */
 
 @media (max-width: 992px) {
@@ -1324,7 +1272,7 @@ footer {
 }
 
 /* ==========================================================================
-   AJUSTE FORÇADO: SECÇÃO REGIÃO
+   18. AJUSTE FORÇADO: SECÇÃO REGIÃO
    ========================================================================== */
 
 /* 1. Restringe a largura máxima de toda a secção para alinhar com o calendário */
@@ -1359,7 +1307,7 @@ section#regiao .conteudo-localizacao {
 }
 
 /* ==========================================
-   ELIMINAR BARRA DO GOOGLE (SÓ CSS)
+   19. ELIMINAR BARRA DO GOOGLE (SÓ CSS)
    ========================================== */
 
 /* Destrói e esconde todos os iframes injetados pelo Translate */
@@ -1402,7 +1350,7 @@ body {
 }
 
 /* ==========================================
-   OCULTAR TITULO/NOME DOS EVENTOS NO CALENDÁRIO
+   20. OCULTAR TITULO/NOME DOS EVENTOS NO CALENDÁRIO
    ========================================== */
 
 /* Esconde o texto/título do evento */
@@ -1421,7 +1369,7 @@ body {
 }
 
 /* ==========================================
-   COMPENSAÇÃO DO MENU FIXO NOS LINKS/ÂNCORAS
+   21. COMPENSAÇÃO DO MENU FIXO NOS LINKS/ÂNCORAS
    ========================================== */
 
 /* Define uma margem superior virtual para todas as secções com ID */
@@ -1431,7 +1379,7 @@ div[id] {
 }
 
 /* ==========================================
-   FORÇAR 1 COLUNA QUANDO A JANELA ENCOLHE (PC E MOBILE)
+   22. FORÇAR 1 COLUNA QUANDO A JANELA ENCOLHE (PC E MOBILE)
    ========================================== */
 @media screen and (max-width: 992px) {
     #regiao .grelha-regiao {
@@ -1448,7 +1396,7 @@ div[id] {
 }
 
 /* ==========================================
-   CABEÇALHO COMPACTO (APENAS EM ECRÃS ESTREITOS)
+   23. CABEÇALHO COMPACTO (APENAS EM ECRÃS ESTREITOS)
    ========================================== */
 @media screen and (max-width: 768px) {
     
