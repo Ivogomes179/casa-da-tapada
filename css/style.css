@@ -877,21 +877,91 @@ body {
     margin-top: 0.8rem;
 }
 
-/* --------------------------------------------------------------------------
-   AJUSTES RESPONSIVOS PARA TELEMÓVEIS (SEM ESMAGAR OS DIAS)
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   AJUSTES RESPONSIVOS PARA TELEMÓVEIS (GERAL, HERO & CALENDÁRIO)
+   ========================================================================== */
 @media (max-width: 768px) {
+
+    /* ----------------------------------------------------------------------
+       1. CABEÇALHO COMPACTO (Apenas o Título "Casa da Tapada")
+       ---------------------------------------------------------------------- */
+    /* Oculta os links, seletor de língua e botões no telemóvel */
+    header nav ul,
+    header nav .seletor-lingua,
+    header nav .btn-reservar,
+    header nav .btn-nav,
+    .nav-links,
+    .seletor-idioma {
+        display: none !important;
+    }
+
+    /* Centra apenas o nome da casa e reduz o padding vertical */
+    header nav {
+        justify-content: center !important;
+        padding: 0.5rem 1rem !important;
+    }
+
+    header nav .logo,
+    header h1 {
+        margin: 0 auto !important;
+        text-align: center !important;
+        font-size: 1.25rem !important;
+    }
+
+
+    /* ----------------------------------------------------------------------
+       2. JANELA ESCURA (HERO CARD) REDUZIDA
+       ---------------------------------------------------------------------- */
+    /* Ajusta a caixa escura para não tapar o fundo da piscina */
+    .hero-card, 
+    .hero-content, 
+    .caixa-hero,
+    #hero .container {
+        padding: 1rem 0.8rem !important;  /* Espaçamento interno bem mais compacto */
+        max-width: 88% !important;        /* Deixa ver a imagem das laterais */
+        margin: 0 auto !important;
+        background: rgba(0, 0, 0, 0.40) !important; /* Opacidade mais leve */
+    }
+
+    /* Título principal do Hero */
+    .hero-card h1,
+    .hero-content h1,
+    #hero h1 {
+        font-size: 1.25rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0.4rem !important;
+    }
+
+    /* Texto descritivo do Hero */
+    .hero-card p,
+    .hero-content p,
+    #hero p {
+        font-size: 0.80rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 0.6rem !important;
+    }
+
+    /* Botão "Ver Disponibilidade" */
+    .hero-card .btn,
+    .hero-content .btn,
+    #hero .btn {
+        padding: 0.4rem 0.9rem !important;
+        font-size: 0.80rem !important;
+    }
+
+
+    /* ----------------------------------------------------------------------
+       3. CALENDÁRIO (CÓDIGO ORIGINAL MANTIDO)
+       ---------------------------------------------------------------------- */
     .container-calendario {
-        padding: 0.6rem 0.2rem !important; /* Maximiza o espaço útil no ecrã do telemóvel */
+        padding: 0.6rem 0.2rem !important;
         margin: 1rem auto;
     }
 
-    /* Aumenta a altura mínima no telemóvel para o bloco não parecer "esmagado" */
     .fc .fc-daygrid-day-frame {
         min-height: 62px !important; 
     }
 
-    /* Ajusta o número do dia dentro da célula */
     .fc .fc-daygrid-day-top {
         flex-direction: row !important;
         justify-content: center !important;
@@ -911,7 +981,6 @@ body {
         font-size: 0.7rem !important;
     }
 
-    /* Otimiza a barra "Ocupado" para caber em colunas finas */
     .fc-event-busy, .fc-event {
         font-size: 0.60rem !important;
         padding: 1px 1px !important;
@@ -1358,7 +1427,7 @@ body {
 /* Define uma margem superior virtual para todas as secções com ID */
 section[id],
 div[id] {
-    scroll-margin-top: 100px; /* Ajusta esta altura caso o menu seja mais alto/baixo */
+    scroll-margin-top: 30px; /* Ajusta esta altura caso o menu seja mais alto/baixo */
 }
 
 /* ==========================================
