@@ -784,7 +784,7 @@ body {
 }
 
 /* ==========================================================================
-   11. CALENDÁRIO DE DISPONIBILIDADE (GOOGLE CALENDAR RESPONSIVO)
+   11. CALENDÁRIO DE DISPONIBILIDADE (FULLCALENDAR + ICAL)
    ========================================================================== */
 
 .container-calendario {
@@ -795,14 +795,84 @@ body {
     margin: 1.5rem auto;
     max-width: 950px;
     border: 1px solid #eee;
-    overflow: hidden;
 }
 
-/* Forçar o iframe do Google a ter espaço vertical suficiente em Desktop */
-.container-calendario iframe {
+/* Redução da altura das células para um visual compacto */
+.fc .fc-daygrid-day-frame {
+    min-height: 52px !important;
+}
+
+.fc .fc-scroller {
+    overflow: hidden !important;
+}
+
+.fc-daygrid-body {
     width: 100% !important;
-    height: 600px !important;
-    border: 0 !important;
+}
+
+/* Estilização das barras de "Ocupado" a VERMELHO */
+.fc-daygrid-event-harness .fc-event,
+.fc-event-busy, 
+.fc-event {
+    background-color: var(--cor-erro) !important;
+    border-color: var(--cor-erro) !important;
+    color: transparent !important; /* Esconde qualquer texto original do Google */
+    border-radius: 4px !important;
+    padding: 2px 4px !important;
+    margin-top: 2px !important;
+    cursor: default !important;
+    pointer-events: none !important;
+    text-align: center !important;
+}
+
+/* Força o texto "Ocupado" a aparecer visualmente através do CSS */
+.fc-daygrid-event-harness .fc-event::after,
+.fc-event::after {
+    content: "Ocupado" !important;
+    display: block !important;
+    color: #ffffff !important;
+    font-size: 0.70rem !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    width: 100% !important;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+/* Garante posicionamento relativo para o pseudo-elemento funcionar */
+.fc-daygrid-event-harness .fc-event,
+.fc-event {
+    position: relative !important;
+}
+
+.fc-toolbar {
+    margin-bottom: 1rem !important;
+}
+
+.fc-toolbar-title {
+    font-size: 1.2rem !important;
+    color: var(--cor-principal);
+    font-weight: 700;
+}
+
+.fc-button-primary {
+    background-color: var(--cor-principal) !important;
+    border-color: var(--cor-principal) !important;
+    transition: var(--transicao);
+    padding: 0.3rem 0.7rem !important;
+    font-size: 0.85rem !important;
+}
+
+.fc-button-primary:hover {
+    background-color: var(--cor-secundaria) !important;
+    border-color: var(--cor-secundaria) !important;
+}
+
+.fc-col-header-cell {
+    padding: 4px 0 !important;
+    font-size: 0.85rem;
 }
 
 .nota-calendario {
@@ -812,16 +882,18 @@ body {
     margin-top: 0.8rem;
 }
 
-/* --------------------------------------------------------------------------
-   AJUSTES PARA MOBILE (<= 768px)
-   -------------------------------------------------------------------------- */
+/* Ajustes responsivos para Mobile (<= 768px) */
 @media (max-width: 768px) {
     .container-calendario {
         padding: 0.3rem !important;
     }
     
-    .container-calendario iframe {
-        height: 500px !important; /* Altura ideal sem esmagar no telemóvel */
+    .fc .fc-daygrid-day-frame {
+        min-height: 58px !important;
+    }
+    
+    .fc-daygrid-event-harness .fc-event {
+        font-size: 0.60rem !important;
     }
 }
 
