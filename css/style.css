@@ -1327,3 +1327,32 @@ body {
     background-color: transparent !important;
     box-shadow: none !important;
 }
+
+/* ==========================================
+   OCULTAR TITULO/NOME DOS EVENTOS NO CALENDÁRIO
+   ========================================== */
+
+/* Esconde o texto/título do evento */
+.fc-event-title,
+.fc-event-main-frame,
+.fc-event-title-container {
+    display: none !important;
+}
+
+/* Ajusta o bloco ocupado para preencher o dia de forma limpa */
+.fc-daygrid-event {
+    background-color: #e74c3c !important; /* Cor de ocupado (ex: vermelho/laranja) */
+    border-color: #e74c3c !important;
+    min-height: 12px !important;
+    border-radius: 4px !important;
+}
+
+/* ==========================================
+   COMPENSAÇÃO DO MENU FIXO NOS LINKS/ÂNCORAS
+   ========================================== */
+
+/* Define uma margem superior virtual para todas as secções com ID */
+section[id],
+div[id] {
+    scroll-margin-top: 30px; /* Ajusta esta altura caso o menu seja mais alto/baixo */
+}
