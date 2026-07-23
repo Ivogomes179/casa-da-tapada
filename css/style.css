@@ -257,20 +257,39 @@ nav ul li a:hover::after {
     font-weight: normal;
 }
 
-/* Esconde o banner / barra do Google Translate no topo da página */
-.goog-te-banner-frame.skiptranslate, 
-.goog-te-banner-frame {
+/* ==========================================
+   REMOVER BARRA DO GOOGLE TRANSLATE (REFORÇADO)
+   ========================================== */
+
+/* 1. Esconde a barra/iframe em todas as variações possíveis */
+.goog-te-banner-frame, 
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame,
+.VIpgJd-yD340d-wn315-bs4nef {
     display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    opacity: 0 !important;
+}
+
+/* 2. Impede o Google de empurrar o HTML e o Body para baixo */
+html {
+    margin-top: 0px !important;
 }
 
 body {
     top: 0px !important;
+    position: static !important;
 }
 
-/* Esconde qualquer tooltip pop-up do Google Translate */
-#goog-gt-tt, .goog-te-balloon-frame {
+/* 3. Esconde balões de tradução ao passar o rato no texto */
+#goog-gt-tt, 
+.goog-te-balloon-frame,
+.goog-tooltip,
+.goog-tooltip:hover {
     display: none !important;
 }
+
 .goog-text-highlight {
     background-color: transparent !important;
     box-shadow: none !important;
