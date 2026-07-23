@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Impede o Chrome de abrir a barra pop-up nativa quando o Google Translate traduz a página -->
+    <meta name="google" content="notranslate">
+    
     <title>Casa da Tapada | Alojamento Local em Penafiel</title>
     <link rel="stylesheet" href="css/style.css">
     
@@ -16,34 +19,34 @@
 <body>
 
     <!-- 1. HEADER & MENU -->
-    <header>
-        <nav>
-            <div class="logo">Casa da Tapada</div>
-            <ul>
-                <li><a href="#sobre">A Casa</a></li>
-                <li><a href="#comodidades">Comodidades</a></li>
-                <li><a href="#localizacao">Localização</a></li>
-                <li><a href="#regras">Regras</a></li>
-                <!-- CORRIGIDO: de #guia-local para #regiao -->
-                <li><a href="#regiao">Região</a></li>
-                <li><a href="#reservas" class="btn-nav">Reservar</a></li>
-                <!-- Seletor de Idioma Personalizado -->
-                <li class="item-tradutor">
-                    <div class="seletor-lingua">
-                        <span onclick="mudarIdioma('pt', event)" class="lang-btn active">PT</span>
-                        <span class="separador">|</span>
-                        <span onclick="mudarIdioma('en', event)" class="lang-btn">EN</span>
-                        <span class="separador">|</span>
-                        <span onclick="mudarIdioma('fr', event)" class="lang-btn">FR</span>
-                        <span class="separador">|</span>
-                        <span onclick="mudarIdioma('es', event)" class="lang-btn">ES</span>
-                    </div>
-                    <!-- Elemento escondido do Google Tradutor -->
-                    <div id="google_translate_element" style="display:none;"></div>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <header class="notranslate">
+    <nav>
+        <div class="logo">Casa da Tapada</div>
+        <ul>
+            <li><a href="#sobre">A Casa</a></li>
+            <li><a href="#comodidades">Comodidades</a></li>
+            <li><a href="#localizacao">Localização</a></li>
+            <li><a href="#regras">Regras</a></li>
+            <li><a href="#regiao">Região</a></li>
+            <li><a href="#reservas" class="btn-nav">Reservar</a></li>
+            
+            <!-- Seletor de Idioma Personalizado -->
+            <li class="item-tradutor notranslate">
+                <div class="seletor-lingua">
+                    <span onclick="mudarIdioma('pt', event)" class="lang-btn active">PT</span>
+                    <span class="separador">|</span>
+                    <span onclick="mudarIdioma('en', event)" class="lang-btn">EN</span>
+                    <span class="separador">|</span>
+                    <span onclick="mudarIdioma('fr', event)" class="lang-btn">FR</span>
+                    <span class="separador">|</span>
+                    <span onclick="mudarIdioma('es', event)" class="lang-btn">ES</span>
+                </div>
+                <!-- Elemento escondido do Google Tradutor -->
+                <div id="google_translate_element" style="display:none;"></div>
+            </li>
+        </ul>
+    </nav>
+</header>
 
     <!-- 2. HERO SECTION -->
     <section id="hero">
